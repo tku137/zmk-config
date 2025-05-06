@@ -18,14 +18,14 @@
             layers = <2>;
         };
 
-        combo_enter {
+        combo_test_1 {
             bindings = <&kp N1>;
             key-positions = <16 17>;
             layers = <0>;
             timeout-ms = <30>;
         };
 
-        combo_enter {
+        combo_test_2 {
             bindings = <&kp N2>;
             key-positions = <43 44>;
             layers = <0>;
