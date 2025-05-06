@@ -1,0 +1,8 @@
+#include <anywhy_flake.dtsi>
+
+/ {
+  chosen {
+    zmk,physical-layout = &small_layout;
+  };
+};
+
