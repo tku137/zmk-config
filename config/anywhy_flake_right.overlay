@@ -1,8 +1,0 @@
-#include <boards/shields/anywhy_flake/anywhy_flake.dtsi>
-
-/ {
-  chosen {
-    zmk,physical-layout = &small_layout;
-  };
-};
-
