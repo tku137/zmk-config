@@ -1,4 +1,4 @@
-#include <anywhy_flake.dtsi>
+#include <boards/shields/anywhy_flake/anywhy_flake.dtsi>
 
 / {
   chosen {
