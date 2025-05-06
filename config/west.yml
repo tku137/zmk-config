@@ -2,7 +2,7 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: anywhy
+    - name: anywhy-io
       url-base: https://github.com/anywhy-io
   projects:
     - name: zmk
@@ -10,9 +10,7 @@ manifest:
       revision: main
       import: app/west.yml
     - name: flake-zmk-module
-      remote: anywhy
+      remote: anywhy-io
       revision: main
-      path: modules/flake-zmk-module
-      import: config/west.yml
   self:
     path: config
