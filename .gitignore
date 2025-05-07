@@ -20,4 +20,4 @@ app/.cache/
 # keymap-drawer
 config/anywhy_flake.json
 config/anywhy_flake.yaml
-keymap-drawer/anywhy_flake.svg
+config/anywhy_flake_keymap.yaml
