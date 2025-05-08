@@ -1,0 +1,23 @@
+.west
+bootloader
+modules
+tools
+zephyr
+zmk-config
+build
+
+# macOS
+*.DS_Store
+
+# Python
+__pycache__
+.python-version
+.venv
+
+# clangd
+app/.cache/
+
+# keymap-drawer
+config/anywhy_flake.json
+config/anywhy_flake.yaml
+keymap-drawer/*.local.svg
