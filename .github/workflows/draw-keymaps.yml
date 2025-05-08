@@ -1,0 +1,29 @@
+name: Draw ZMK keymaps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/*.keymap"
+      - "keymap-drawer/keymap_drawer.config.yaml"
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write
+    with:
+      # 1) Parse any .keymap in config/
+      keymap_patterns: "config/*.keymap"
+      # 2) Load your custom parse/draw overrides
+      config_path: "keymap-drawer/keymap_drawer.config.yaml"
+      # 3) Fetch your flake-zmk-module via West (which brings in anywhy_flake.json)
+      west_config_path: "config"
+      # 4) Point at the module checkout for the JSON layouts
+      json_path: ".west/modules/anywhy-io/flake-zmk-module"
+      # 5) Force small_layout so it matches your 40-key map
+      draw_args: "anywhy_flake:'-l small_layout'"
+      # 6) Emit both YAML+SVG into keymap-drawer/
+      output_folder: "keymap-drawer"
+      # (No special parse-time args needed)
+      parse_args: ""
