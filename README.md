@@ -7,7 +7,7 @@
 
 ### Anywhy Flake S
 
-t.b.a
+<img alt="keymap" width="100%" src="./keymap-drawer/anywhy_flake.svg">
 
 ## Licensing
 
@@ -15,6 +15,6 @@ This repository and any firmware binaries it produces are released under the **G
 The combined work includes:
 
 - **ZMK Firmware** (core framework), which is licensed under the **MIT License** (a GPL-compatible, permissive license).
-- **flake-zmk-module** (Anywhy Flake shield definitions), which is licensed under the **GNU GPL v3.0**. 
+- **flake-zmk-module** (Anywhy Flake shield definitions), which is licensed under the **GNU GPL v3.0**.
 
-Because the flake-zmk-module is GPL-3.0, the final distributed firmware—containing both MIT-licensed and GPL-licensed components—must itself be licensed under **GPL v3.0**, with the full source code and GPL text made available. 
+Because the flake-zmk-module is GPL-3.0, the final distributed firmware—containing both MIT-licensed and GPL-licensed components—must itself be licensed under **GPL v3.0**, with the full source code and GPL text made available.
