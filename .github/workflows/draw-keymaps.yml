@@ -6,6 +6,11 @@ on:
     paths:
       - "config/*.keymap"
       - "keymap-drawer/keymap_drawer.config.yaml"
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - "config/*.keymap"
+      - "keymap-drawer/**"
 
 jobs:
   draw:
