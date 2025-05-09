@@ -3,4 +3,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
+    # this prevents triggering another build when the 
+    # draw-keymaps workflow makes its bot commit
+    if: github.actor != 'github-actions[bot]'
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
