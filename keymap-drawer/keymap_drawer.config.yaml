@@ -1,4 +1,5 @@
 parse_config:
+  preprocess: false
   raw_binding_map:
 
     # System
@@ -35,6 +36,13 @@ parse_config:
     "&bootloader":
       tap: $$mdi:progress-download$$
 
+    # Special
+    "&degree": °
+    "&greek": $$mdi:alphabet-greek$$
+    "&codeblock": $$mdi:code-block-tags$$
+    "&euro": $$mdi:currency-eur$$
+
+
   # ZMK keycodes to symbols
   zmk_keycode_map:
     # Symbols
@@ -58,29 +66,33 @@ parse_config:
     LPAR: (
     RIGHT_PARENTHESIS: )
     RPAR: )
-    EQUAL:
-      tap: "="
-      shifted: "+"
+    EQUAL: "="
+    # EQUAL:
+    #   tap: "="
+    #   shifted: "+"
     PLUS: +
-    MINUS:
-      tap: "-"
-      shifted: "_"
+    MINUS: "-"
+    # MINUS:
+    #   tap: "-"
+    #   shifted: "_"
     UNDERSCORE: _
     UNDER: _
     SLASH:
       tap: "/"
       shifted: "?"
-    FSLH:
-      tap: "/"
-      shifted: "?"
+    FSLH: "/"
+    # FSLH:
+    #   tap: "/"
+    #   shifted: "?"
     QUESTION: "?"
     QMARK: "?"
-    BACKSLASH:
-      tap: '\'
-      shifted: "|"
-    BSLH:
-      tap: '\'
-      shifted: "|"
+    # BACKSLASH:
+    #   tap: '\'
+    #   shifted: "|"
+    BSLH: '\'
+    # BSLH:
+    #   tap: '\'
+    #   shifted: "|"
     PIPE: "|"
     NON_US_BACKSLASH: \
     PIPE2: "|"
@@ -92,12 +104,13 @@ parse_config:
       tap: ";"
       shifted: ":"
     COLON: ":"
-    SINGLE_QUOTE:
-      tap: "'"
-      shifted: '"'
-    SQT:
-      tap: "'"
-      shifted: '"'
+    # SINGLE_QUOTE:
+    #   tap: "'"
+    #   shifted: '"'
+    SQT: "'"
+    # SQT:
+    #   tap: "'"
+    #   shifted: '"'
     APOSTROPHE: <
     APOS: .
     DOUBLE_QUOTES: '"'
@@ -113,61 +126,64 @@ parse_config:
       shifted: "<"
     GREATER_THAN: ">"
     GT: ">"
-    LEFT_BRACKET:
-      tap: "["
-      shifted: "{"
-    LBKT:
-      tap: "["
-      shifted: "{"
+    # LEFT_BRACKET:
+    #   tap: "["
+    #   shifted: "{"
+    LBKT: "["
+    # LBKT:
+    #   tap: "["
+    #   shifted: "{"
     LEFT_BRACE: "{"
     LBRC: "{"
-    RIGHT_BRACKET:
-      tap: "]"
-      shifted: "}"
-    RBKT:
-      tap: "]"
-      shifted: "}"
+    # RIGHT_BRACKET:
+    #   tap: "]"
+    #   shifted: "}"
+    RBKT: "]"
+    # RBKT:
+    #   tap: "]"
+    #   shifted: "}"
     RIGHT_BRACE: "}"
     RBRC: "}"
-    GRAVE:
-      tap: "`"
-      shifted: "~"
+    GRAVE: "`"
+    # GRAVE:
+    #   tap: "`"
+    #   shifted: "~"
     TILDE: "~"
     NON_US_HASH: "#"
     NUHS: "#"
     TILDE2: "~"
 
     # Numbers
-    N1:
-      tap: 1
-      shifted: "!"
-    N2:
-      tap: 2
-      shifted: "@"
-    N3:
-      tap: 3
-      shifted: "#"
-    N4:
-      tap: 4
-      shifted: "$"
-    N5:
-      tap: 5
-      shifted: "%"
-    N6:
-      tap: 6
-      shifted: "^"
-    N7:
-      tap: 7
-      shifted: "&"
-    N8:
-      tap: 8
-      shifted: "*"
-    N9:
-      tap: 9
-      shifted: "("
-    N0:
-      tap: 0
-      shifted: ")"
+    # N1:
+    #   tap: 1
+    #   shifted: "!"
+    # N2:
+    #   tap: 2
+    #   shifted: "@"
+    # N3:
+    #   tap: 3
+    #   shifted: "#"
+    # N4:
+    #   tap: 4
+    #   shifted: "$"
+    # N5:
+    #   tap: 5
+    #   shifted: "%"
+    # N6:
+    #   tap: 6
+    #   shifted: "^"
+    # N7:
+    #   tap: 7
+    #   shifted: "&"
+    # N8:
+    #   tap: 8
+    #   shifted: "*"
+    # N9:
+    #   tap: 9
+    #   shifted: "("
+    # N0:
+    #   tap: 0
+    #   shifted: ")"
 
     # Modifiers
     LCTRL: $$mdi:apple-keyboard-control$$
