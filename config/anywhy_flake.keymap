@@ -8,6 +8,7 @@
     combos {
         compatible = "zmk,combos";
 
+        /* bluetooth profiles */
         bt_sel_3 {
             bindings = <&bt3>;
             key-positions = <25 15>;
@@ -18,6 +19,31 @@
             bindings = <&bt4>;
             key-positions = <15 5>;
             layers = <3>;
+        };
+
+        /* base layer necessities */
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+            layers = <0>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <12 13>;
+            layers = <0>;
+        };
+
+        esc {
+            bindings = <&kp ESC>;
+            key-positions = <11 12>;
+            layers = <0>;
+        };
+
+        bspc {
+            bindings = <&kp BSPC>;
+            key-positions = <17 18>;
+            layers = <0>;
         };
 
     };
