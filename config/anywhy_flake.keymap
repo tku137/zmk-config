@@ -46,6 +46,13 @@
             layers = <0>;
         };
 
+        combo_shift {
+            key-positions = <10 11>;
+            layers = <0>;
+            bindings = <&kp LSHFT>;
+            slow-release;
+        };
+
     };
 
     macros {
