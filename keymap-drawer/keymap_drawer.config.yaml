@@ -1,5 +1,6 @@
 parse_config:
   preprocess: false
+  sticky_label: $$tabler:pin$$
   raw_binding_map:
 
     # System
