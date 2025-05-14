@@ -90,6 +90,25 @@
 <svg id="mdi:volume-off">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-volume-off" viewBox="0 0 24 24"><path d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" /></svg>
 </svg>
+<svg id="tabler:pin">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+ 
+ 
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-pin"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" />
+  <path d="M9 15l-4.5 4.5" />
+  <path d="M14.5 4l5.5 5.5" />
+</svg>
+</svg>
 </defs>/* end glyphs */
 <style>/* inherit to force styles through use tags */
 svg path {
@@ -400,6 +419,10 @@ path.combo {
 <g class="combo backspace combopos-3">
 <rect rx="6" ry="6" x="658" y="78" width="28" height="26" class="combo backspace"/>
 <use href="#mdi:backspace" xlink:href="#mdi:backspace" x="665" y="84" height="14" width="14.0" class="combo backspace tap glyph mdi:backspace"/>
+</g>
+<g class="combo combopos-4">
+<rect rx="6" ry="6" x="42" y="99" width="28" height="26" class="combo"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="49" y="105" height="14" width="14.0" class="combo tap glyph mdi:apple-keyboard-shift"/>
 </g>
 </g>
 </g>
@@ -809,18 +832,22 @@ path.combo {
 <g transform="translate(588, 98)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(644, 84)" class="key keypos-17">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#mdi:apple-keyboard-control" xlink:href="#mdi:apple-keyboard-control" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:apple-keyboard-control"/>
+<use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(700, 98)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:apple-keyboard-option"/>
+<use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(756, 126)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#mdi:apple-keyboard-command" xlink:href="#mdi:apple-keyboard-command" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:apple-keyboard-command"/>
+<use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(28, 182)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

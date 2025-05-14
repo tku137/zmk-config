@@ -140,10 +140,10 @@ layers:
   - F6
   - $$mdi:alpha-w-box$$
   - {t: '$$mdi:bluetooth-connect$$', right: '2'}
-  - $$mdi:apple-keyboard-shift$$
-  - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-command$$
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
   - F10
   - F1
   - F2
@@ -182,4 +182,7 @@ combos:
   l: [base]
 - p: [17, 18]
   k: {t: '$$mdi:backspace$$', type: backspace}
+  l: [base]
+- p: [10, 11]
+  k: $$mdi:apple-keyboard-shift$$
   l: [base]
