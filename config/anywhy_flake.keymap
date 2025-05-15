@@ -46,8 +46,15 @@
             layers = <0>;
         };
 
-        combo_shift {
-            key-positions = <10 11>;
+        combo_lshift {
+            key-positions = <0 10>;
+            layers = <0>;
+            bindings = <&kp LSHFT>;
+            slow-release;
+        };
+
+        combo_rshift {
+            key-positions = <9 19>;
             layers = <0>;
             bindings = <&kp LSHFT>;
             slow-release;
