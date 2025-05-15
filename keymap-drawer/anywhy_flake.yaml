@@ -183,6 +183,9 @@ combos:
 - p: [17, 18]
   k: {t: '$$mdi:backspace$$', type: backspace}
   l: [base]
-- p: [10, 11]
+- p: [0, 10]
+  k: $$mdi:apple-keyboard-shift$$
+  l: [base]
+- p: [9, 19]
   k: $$mdi:apple-keyboard-shift$$
   l: [base]
