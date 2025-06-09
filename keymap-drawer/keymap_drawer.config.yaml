@@ -30,6 +30,9 @@ parse_config:
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
 
+    # Custom Behaviours
+    "&magic_sft": $$mdi:arrow-up-bold-hexagon-outline$$
+
     # Reset
     "&sys_reset":
       type: bootloader

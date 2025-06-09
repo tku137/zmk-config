@@ -179,6 +179,37 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        /* Magic Shift Setup */
+
+        st_sft: sticky_lshift {
+            compatible = "zmk,behavior-sticky-key";
+            label = "ST_LSHIFT";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT>;
+            quick-release;
+        };
+
+        td_sft: tapdance_lshift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LSFT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&st_sft &caps_word>;
+        };
+
+        /* Hold-Tap wrapper: hold = normal Shift, tap(s) see above */
+        magic_sft: magic_lshift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_LSFT";
+            #binding-cells = <0>;
+            hold-while-undecided;    /* press Shift immediately, release if it resolves as a tap */
+            flavor = "balanced";     /* "tap-preferred" if false positive taps are a problem */
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp LSHFT &td_sft>;
+        };
+
     };
 
     keymap {
@@ -189,7 +220,7 @@
 &kp Q     &kp W     &kp E      &kp R      &kp T    &kp Y  &kp U      &kp I      &kp O     &kp P
 &kp A     &kp S     &kp D      &kp F      &kp G    &kp H  &kp J      &kp K      &kp L     &kp SEMI
 &kp Z     &kp X     &kp C      &kp V      &kp B    &kp N  &kp M      &kp COMMA  &kp DOT   &kp SLASH
-&kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 1    &mo 2  &kp LSHFT  &kp RGUI   &kp RALT  &kp RCTRL
+&kp LCTRL &kp LALT  &kp LGUI   &kp SPACE  &mo 1    &mo 2  &magic_sft &kp RCTRL  &kp RALT  &kp RGUI
             >;
         };
 
