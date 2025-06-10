@@ -37,7 +37,7 @@ layers:
   - $$mdi:keyboard-space$$
   - num
   - sym
-  - $$mdi:arrow-up-bold-hexagon-outline$$
+  - {t: '&tdsc', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
