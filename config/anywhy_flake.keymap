@@ -2,6 +2,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+// Short-hand macro for magic shift implementation
+#define MS(kc) &ms kc 0
+
 / { chosen { zmk,physical-layout = &small_layout; }; };
 
 / {
@@ -201,15 +204,15 @@
         };
 
         /* Hold-Tap wrapper: hold = normal Shift, tap(s) see above */
-        magic_sft: magic_shift {
+        ms: magic_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_SFT";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             hold-while-undecided;    /* press Shift immediately, release if it resolves as a tap */
             flavor = "balanced";     /* "tap-preferred" if false positive taps are a problem */
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            bindings = <&kp LSHIFT &tdsc>;
+            bindings = <&kp>, <&tdsc>;
         };
 
     };
@@ -219,10 +222,10 @@
 
         base {
             bindings = <
-&kp Q     &kp W     &kp E      &kp R      &kp T    &kp Y  &kp U      &kp I      &kp O     &kp P
-&kp A     &kp S     &kp D      &kp F      &kp G    &kp H  &kp J      &kp K      &kp L     &kp SEMI
-&kp Z     &kp X     &kp C      &kp V      &kp B    &kp N  &kp M      &kp COMMA  &kp DOT   &kp SLASH
-&kp LCTRL &kp LALT  &kp LGUI   &kp SPACE  &mo 1    &mo 2  &magic_sft &kp RCTRL  &kp RALT  &kp RGUI
+&kp Q     &kp W     &kp E      &kp R      &kp T    &kp Y  &kp U         &kp I      &kp O     &kp P
+&kp A     &kp S     &kp D      &kp F      &kp G    &kp H  &kp J         &kp K      &kp L     &kp SEMI
+&kp Z     &kp X     &kp C      &kp V      &kp B    &kp N  &kp M         &kp COMMA  &kp DOT   &kp SLASH
+&kp LCTRL &kp LALT  &kp LGUI   &kp SPACE  &mo 1    &mo 2  &ms LSHIFT 0  &kp RCTRL  &kp RALT  &kp RGUI
             >;
         };
 
