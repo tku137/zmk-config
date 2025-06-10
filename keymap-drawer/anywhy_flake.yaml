@@ -35,13 +35,13 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:keyboard-space$$
-  - Num/Nav
-  - Symbol
+  - Num
+  - Sym
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  Num/Nav:
+  Num:
   - $$mdi:currency-eur$$
   - '7'
   - '8'
@@ -82,7 +82,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  Symbol:
+  Sym:
   - ^
   - <
   - '>'
@@ -123,7 +123,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  Function:
+  Func:
   - F12
   - F7
   - F8
@@ -167,10 +167,10 @@ layers:
 combos:
 - p: [25, 15]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
-  l: [Function]
+  l: [Func]
 - p: [15, 5]
   k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
-  l: [Function]
+  l: [Func]
 - p: [16, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
   l: [Base]
