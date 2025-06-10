@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: anywhy_flake, layout_name: small_layout}
 layers:
-  base:
+  Base:
   - Q
   - W
   - E
@@ -35,19 +35,19 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:keyboard-space$$
-  - num
-  - sym
-  - {t: '&tdsc', h: '$$mdi:apple-keyboard-shift$$'}
+  - Num/Nav
+  - Symbol
+  - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  num:
+  Num/Nav:
   - $$mdi:currency-eur$$
   - '7'
   - '8'
   - '9'
   - {t: /, s: '?'}
-  - PAGE UP
+  - PG UP
   - HOME
   - $$mdi:arrow-up-bold$$
   - END
@@ -57,7 +57,7 @@ layers:
   - '5'
   - '6'
   - {t: ., s: '>'}
-  - PAGE DOWN
+  - PG DOWN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
@@ -82,7 +82,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  sym:
+  Symbol:
   - ^
   - <
   - '>'
@@ -123,7 +123,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  fn:
+  Function:
   - F12
   - F7
   - F8
@@ -167,25 +167,25 @@ layers:
 combos:
 - p: [25, 15]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
-  l: [fn]
+  l: [Function]
 - p: [15, 5]
   k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
-  l: [fn]
+  l: [Function]
 - p: [16, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
-  l: [base]
+  l: [Base]
 - p: [12, 13]
   k: $$mdi:keyboard-tab$$
-  l: [base]
+  l: [Base]
 - p: [11, 12]
   k: $$mdi:keyboard-esc$$
-  l: [base]
+  l: [Base]
 - p: [17, 18]
   k: {t: '$$mdi:backspace$$', type: backspace}
-  l: [base]
+  l: [Base]
 - p: [0, 10]
   k: $$mdi:apple-keyboard-shift$$
-  l: [base]
+  l: [Base]
 - p: [9, 19]
   k: $$mdi:apple-keyboard-shift$$
-  l: [base]
+  l: [Base]

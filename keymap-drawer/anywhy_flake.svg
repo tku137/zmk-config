@@ -54,6 +54,9 @@
 <svg id="mdi:currency-eur">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-currency-eur" viewBox="0 0 24 24"><path d="M15 18.5C12.5 18.5 10.32 17.08 9.24 15H15L16 13H8.58C8.53 12.67 8.5 12.34 8.5 12S8.53 11.33 8.58 11H15L16 9H9.24C10.32 6.92 12.5 5.5 15 5.5C16.61 5.5 18.09 6.09 19.23 7.07L21 5.3C19.41 3.87 17.3 3 15 3C11.08 3 7.76 5.5 6.5 9H3L2 11H6.06C6 11.33 6 11.66 6 12S6 12.67 6.06 13H3L2 15H6.5C7.76 18.5 11.08 21 15 21C17.31 21 19.41 20.13 21 18.7L19.22 16.93C18.09 17.91 16.62 18.5 15 18.5Z" /></svg>
 </svg>
+<svg id="mdi:format-letter-case-upper">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-format-letter-case-upper" viewBox="0 0 24 24"><path d="M20.06,18C20,17.83 19.91,17.54 19.86,17.11C19.19,17.81 18.38,18.16 17.45,18.16C16.62,18.16 15.93,17.92 15.4,17.45C14.87,17 14.6,16.39 14.6,15.66C14.6,14.78 14.93,14.1 15.6,13.61C16.27,13.12 17.21,12.88 18.43,12.88H19.83V12.24C19.83,11.75 19.68,11.36 19.38,11.07C19.08,10.78 18.63,10.64 18.05,10.64C17.53,10.64 17.1,10.76 16.75,11C16.4,11.25 16.23,11.54 16.23,11.89H14.77C14.77,11.46 14.92,11.05 15.22,10.65C15.5,10.25 15.93,9.94 16.44,9.71C16.95,9.5 17.5,9.36 18.13,9.36C19.11,9.36 19.87,9.6 20.42,10.09C20.97,10.58 21.26,11.25 21.28,12.11V16C21.28,16.8 21.38,17.42 21.58,17.88V18H20.06M17.66,16.88C18.11,16.88 18.54,16.77 18.95,16.56C19.35,16.35 19.65,16.07 19.83,15.73V14.16H18.7C16.93,14.16 16.04,14.63 16.04,15.57C16.04,16 16.19,16.3 16.5,16.53C16.8,16.76 17.18,16.88 17.66,16.88M5.46,13.71H9.53L7.5,8.29L5.46,13.71M6.64,6H8.36L13.07,18H11.14L10.17,15.43H4.82L3.86,18H1.93L6.64,6M2,20H13V22H2V20Z" /></svg>
+</svg>
 <svg id="mdi:keyboard-esc">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-keyboard-esc" viewBox="0 0 24 24"><path d="M1 7H7V9H3V11H7V13H3V15H7V17H1V7M11 7H15V9H11V11H13C14.11 11 15 11.9 15 13V15C15 16.11 14.11 17 13 17H9V15H13V13H11C9.9 13 9 12.11 9 11V9C9 7.9 9.9 7 11 7M19 7H21C22.11 7 23 7.9 23 9V10H21V9H19V15H21V14H23V15C23 16.11 22.11 17 21 17H19C17.9 17 17 16.11 17 15V9C17 7.9 17.9 7 19 7Z" /></svg>
 </svg>
@@ -235,8 +238,8 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 </style>
-<g transform="translate(30, 0)" class="layer-base">
-<text x="0" y="28" class="label" id="base">base:</text>
+<g transform="translate(30, 0)" class="layer-Base">
+<text x="0" y="28" class="label" id="Base">Base:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 70)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -380,17 +383,17 @@ path.combo {
 </g>
 <g transform="translate(318, 244) rotate(30.0)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#num">
-<text x="0" y="0" class="key tap layer-activator">num</text>
+<a href="#NumNav">
+<text x="0" y="0" class="key tap layer-activator">Num/Nav</text>
 </a></g>
 <g transform="translate(466, 244) rotate(-30.0)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#sym">
-<text x="0" y="0" class="key tap layer-activator">sym</text>
+<a href="#Symbol">
+<text x="0" y="0" class="key tap layer-activator">Symbol</text>
 </a></g>
 <g transform="translate(526, 218) rotate(-15.0)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;tdsc</text>
+<use href="#mdi:format-letter-case-upper" xlink:href="#mdi:format-letter-case-upper" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:format-letter-case-upper"/>
 <use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-6" y="12" height="12" width="12.0" class="key hold glyph mdi:apple-keyboard-shift"/>
 </g>
 <g transform="translate(588, 210)" class="key keypos-37">
@@ -431,8 +434,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 338)" class="layer-num">
-<text x="0" y="28" class="label" id="num">num:</text>
+<g transform="translate(30, 338)" class="layer-Num/Nav">
+<text x="0" y="28" class="label" id="NumNav">Num/Nav:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 70)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -458,7 +461,7 @@ path.combo {
 <g transform="translate(532, 42)" class="key keypos-5">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">PAGE</tspan><tspan x="0" dy="1.2em">UP</tspan>
+<tspan x="0" dy="-0.6em">PG</tspan><tspan x="0" dy="1.2em">UP</tspan>
 </text>
 </g>
 <g transform="translate(588, 42)" class="key keypos-6">
@@ -501,7 +504,7 @@ path.combo {
 <g transform="translate(532, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">PAGE</tspan><tspan x="0" dy="1.2em">DOWN</tspan>
+<tspan x="0" dy="-0.6em">PG</tspan><tspan x="0" dy="1.2em">DOWN</tspan>
 </text>
 </g>
 <g transform="translate(588, 98)" class="key keypos-16">
@@ -600,8 +603,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 676)" class="layer-sym">
-<text x="0" y="28" class="label" id="sym">sym:</text>
+<g transform="translate(30, 676)" class="layer-Symbol">
+<text x="0" y="28" class="label" id="Symbol">Symbol:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 70)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -764,8 +767,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1014)" class="layer-fn">
-<text x="0" y="28" class="label" id="fn">fn:</text>
+<g transform="translate(30, 1014)" class="layer-Function">
+<text x="0" y="28" class="label" id="Function">Function:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 70)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
