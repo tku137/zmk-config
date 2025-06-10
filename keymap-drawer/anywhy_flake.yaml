@@ -57,7 +57,7 @@ layers:
   - '5'
   - '6'
   - {t: ., s: '>'}
-  - PG DOWN
+  - PG DN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
