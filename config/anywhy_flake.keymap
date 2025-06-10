@@ -211,7 +211,7 @@
         };
 
         num {
-            display-name = "Num/Nav";
+            display-name = "Num";
             bindings = <
 &euro       &kp N7      &kp N8      &kp N9      &kp SLASH         &kp PG_UP    &kp HOME      &kp UP        &kp END       &kp BACKSPACE
 &kp N0      &kp N4      &kp N5      &kp N6      &kp DOT           &kp PG_DN    &kp LEFT      &kp DOWN      &kp RIGHT     &kp ENTER
@@ -221,7 +221,7 @@
         };
 
         sym {
-            display-name = "Symbol";
+            display-name = "Sym";
             bindings = <
 &kp CARET   &kp LT      &kp GT      &kp DQT     &kp SQT           &kp PIPE     &kp LBKT      &kp RBKT      &kp DOLLAR    &degree
 &kp EXCL    &kp MINUS   &kp PLUS    &kp EQUAL   &kp GRAVE         &kp HASH     &kp LPAR      &kp RPAR      &kp AT        &kp AMPS
@@ -231,7 +231,7 @@
         };
 
         fn {
-            display-name = "Function";
+            display-name = "Func";
             bindings = <
 &kp F12     &kp F7      &kp F8      &kp F9      &soft_off         &bt2         &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP
 &kp F11     &kp F4      &kp F5      &kp F6      &caps_word        &bt1         &sk RSHFT     &sk RCTRL     &sk RALT      &sk RGUI
