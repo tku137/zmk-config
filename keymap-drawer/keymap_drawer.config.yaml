@@ -31,7 +31,7 @@ parse_config:
     "&caps_word": $$mdi:alpha-w-box$$
 
     # Custom Behaviours
-    "&magic_sft": $$mdi:arrow-up-bold-hexagon-outline$$
+    "&tdsc": $$mdi:format-letter-case-upper$$
 
     # Reset
     "&sys_reset":
