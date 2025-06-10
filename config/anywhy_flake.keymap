@@ -182,32 +182,34 @@
 
         /* Magic Shift Setup */
 
-        st_sft: sticky_lshift {
+        skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
-            label = "ST_LSHIFT";
-            #binding-cells = <0>;
-            bindings = <&kp LSHFT>;
+            label = "SK_QUICK_RELEASE";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
             quick-release;
+            ignore-modifiers;
         };
 
-        td_sft: tapdance_lshift {
+        tdsc: tapdance_shift_capsword {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_LSFT";
+            label = "TD_SFT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&st_sft &caps_word>;
+            bindings = <&skq LSHIFT>, <&caps_word>;
         };
 
         /* Hold-Tap wrapper: hold = normal Shift, tap(s) see above */
-        magic_sft: magic_lshift {
+        magic_sft: magic_shift {
             compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_LSFT";
+            label = "MAGIC_SFT";
             #binding-cells = <0>;
             hold-while-undecided;    /* press Shift immediately, release if it resolves as a tap */
             flavor = "balanced";     /* "tap-preferred" if false positive taps are a problem */
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            bindings = <&kp LSHFT &td_sft>;
+            bindings = <&kp LSHIFT &tdsc>;
         };
 
     };
