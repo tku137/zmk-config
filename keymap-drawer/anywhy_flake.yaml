@@ -34,39 +34,39 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  - $$mdi:keyboard-space$$
+  - {t: '$$mdi:keyboard-space$$', h: Sym}
+  - Nav
   - Num
-  - Sym
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  Num:
-  - $$mdi:currency-eur$$
-  - '7'
-  - '8'
-  - '9'
-  - {t: /, s: '?'}
+  Nav:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - PG UP
   - HOME
   - $$mdi:arrow-up-bold$$
   - END
   - {t: '$$mdi:backspace$$', type: backspace}
-  - '0'
-  - '4'
-  - '5'
-  - '6'
-  - {t: ., s: '>'}
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
+  - ''
   - PG DN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $
-  - '1'
-  - '2'
-  - '3'
-  - {t: ',', s: <}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - $$mdi:keyboard-esc$$
   - $$mdi:keyboard-tab$$
@@ -78,6 +78,47 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Num:
+  - ''
+  - '7'
+  - '8'
+  - '9'
+  - (
+  - )
+  - +
+  - '-'
+  - '*'
+  - /
+  - '0'
+  - '4'
+  - '5'
+  - '6'
+  - {t: ., s: '>'}
+  - $$mdi:currency-eur$$
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-control$$
+  - ''
+  - '1'
+  - '2'
+  - '3'
+  - {t: ',', s: <}
+  - $
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -116,9 +157,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -167,10 +208,10 @@ layers:
 combos:
 - p: [25, 15]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
-  l: [Func]
+  l: [Sym]
 - p: [15, 5]
   k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
-  l: [Func]
+  l: [Sym]
 - p: [16, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
   l: [Base]
