@@ -12,13 +12,13 @@
         bt_sel_3 {
             bindings = <&bt3>;
             key-positions = <25 15>;
-            layers = <3>;
+            layers = <4>;
         };
 
         bt_sel_4 {
             bindings = <&bt4>;
             key-positions = <15 5>;
-            layers = <3>;
+            layers = <4>;
         };
 
         /* base layer necessities */
