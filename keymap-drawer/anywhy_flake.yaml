@@ -208,10 +208,10 @@ layers:
 combos:
 - p: [25, 15]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
-  l: [Sym]
+  l: [Func]
 - p: [15, 5]
   k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
-  l: [Sym]
+  l: [Func]
 - p: [16, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
   l: [Base]
