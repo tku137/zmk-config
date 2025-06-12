@@ -205,11 +205,14 @@
         };
 
         /* Momentary-KP wrapper, hold for layer or tap for &kp */
-        mk: hold_tap_space_sym {
+        mk: hold_tap_layer_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            flavor = "tap-preferred"; /* faster interrupt logic */
+            tapping-term-ms = <160>; /* a bit shorter to have snappier decision for space key */
+            require-prior-idle-ms = <125>; /* immediately resolve as tap while fast typing */
+            quick-tap-ms = <125>; /* keeps double (or multiple) space taps snappy */
+            hold-while-undecided; /* immediate symbol layer on hold, retract hold before sending space */
             bindings = <&mo>, <&kp>;
         };
     };
