@@ -209,9 +209,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred"; /* faster interrupt logic */
-            tapping-term-ms = <160>; /* a bit shorter to have snappier decision for space key */
-            require-prior-idle-ms = <125>; /* immediately resolve as tap while fast typing */
-            quick-tap-ms = <125>; /* keeps double (or multiple) space taps snappy */
+            tapping-term-ms = <200>; /* a bit shorter to have snappier decision for space key */
+            require-prior-idle-ms = <175>; /* immediately resolve as tap while fast typing */
+            quick-tap-ms = <175>; /* keeps double (or multiple) space taps snappy */
             hold-while-undecided; /* immediate symbol layer on hold, retract hold before sending space */
             bindings = <&mo>, <&kp>;
         };
