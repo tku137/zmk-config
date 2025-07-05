@@ -1,0 +1,12 @@
+if SHIELD_ANYWHY_FLAKE_DONGLE
+    config ZMK_KEYBOARD_NAME
+        default "anywhy_flake_dongle"
+
+    config BT_MAX_CONN
+        default 7
+    config BT_MAX_PAIRED
+        default 7
+
+    config ZMK_STUDIO
+        default n
+endif

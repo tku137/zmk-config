@@ -1,0 +1,8 @@
+/*
+ * This file is intentionally left empty.
+ * The 'prospector_adapter' shield provides all necessary
+ * hardware definitions for the dongle. This shield is only
+ * used to apply Kconfig settings.
+ */
+/ {};
+
