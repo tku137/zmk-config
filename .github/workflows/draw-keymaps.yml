@@ -9,7 +9,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - "config/*.keymap"
+      - "config/anywhy_flake.keymap"
       - "keymap-drawer/**"
 
 jobs:
