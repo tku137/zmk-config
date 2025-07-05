@@ -1,0 +1,4 @@
+name: disable_studio          # must match what you pass with -S …
+kconfig:
+  - disable_studio.conf       # loaded after every other *.conf
+
