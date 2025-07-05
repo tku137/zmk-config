@@ -20,7 +20,6 @@
 include:
   - board: seeeduino_xiao_ble
     shield: anywhy_flake_dongle prospector_adapter
-    snippet: disable_studio
   - shield: anywhy_flake_left
     board: nice_nano_v2
     snippet: studio-rpc-usb-uart
