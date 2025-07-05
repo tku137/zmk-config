@@ -1,2 +1,0 @@
-config SHIELD_ANYWHY_FLAKE_DONGLE
-    bool "Anywhy Flake Dongle"
