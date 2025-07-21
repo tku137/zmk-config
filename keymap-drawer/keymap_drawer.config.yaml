@@ -35,6 +35,9 @@ parse_config:
     "&sk LG(LC(LA(LSHIFT)))":
       tap:   "$$mdi:rhombus-split-outline$$"
       hold:  "$$tabler:pin$$"
+    "&sm RALT RALT":
+      tap:   "$$mdi:apple-keyboard-option$$"
+      hold:  "$$tabler:pin$$"
 
     # Custom Behaviours
     "&tdsc": $$mdi:format-letter-case-upper$$
