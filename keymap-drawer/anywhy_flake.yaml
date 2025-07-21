@@ -39,7 +39,7 @@ layers:
   - Sym
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Num
-  - $$mdi:apple-keyboard-option$$
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:apple-keyboard-option$$'}
   - $$mdi:apple-keyboard-command$$
   Nav:
   - ''
@@ -56,7 +56,7 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-shift$$
-  - ''
+  - '&hyper'
   - PG DN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -67,9 +67,9 @@ layers:
   - ''
   - ''
   - ''
-  - ''
   - $$mdi:keyboard-esc$$
   - $$mdi:keyboard-tab$$
+  - ''
   - ''
   - $$mdi:backspace-reverse-outline$$
   - ''
@@ -98,7 +98,7 @@ layers:
   - '5'
   - '6'
   - {t: ., s: '>'}
-  - $$mdi:currency-eur$$
+  - '&shyper'
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
@@ -108,8 +108,8 @@ layers:
   - '2'
   - '3'
   - {t: ',', s: <}
+  - $$mdi:currency-eur$$
   - $
-  - ''
   - ''
   - ''
   - ''
@@ -169,8 +169,8 @@ layers:
   - F7
   - F8
   - F9
-  - $$mdi:power$$
   - {t: '$$mdi:bluetooth-connect$$', s: '$$mdi:bluetooth-off$$', right: '3'}
+  - $$mdi:power$$
   - $$mdi:volume-off$$
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
@@ -179,8 +179,8 @@ layers:
   - F4
   - F5
   - F6
-  - $$mdi:alpha-w-box$$
   - {t: '$$mdi:bluetooth-connect$$', right: '2'}
+  - '&shyper'
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
@@ -189,8 +189,8 @@ layers:
   - F1
   - F2
   - F3
-  - $$mdi:lock-open-variant-outline$$
   - {t: '$$mdi:bluetooth-connect$$', right: '1'}
+  - $$mdi:language$$
   - $$mdi:play-pause$$
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
@@ -206,10 +206,10 @@ layers:
   - ''
   - ''
 combos:
-- p: [25, 15]
+- p: [24, 14]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
   l: [Func]
-- p: [15, 5]
+- p: [14, 4]
   k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
   l: [Func]
 - p: [16, 17]
