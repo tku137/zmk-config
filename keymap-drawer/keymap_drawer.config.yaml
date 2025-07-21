@@ -29,9 +29,17 @@ parse_config:
 
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
+    # for one‑shot Hyper (the &kp LG(LC(LA(LSHIFT))) binding)
+    "&kp LG(LC(LA(LSHIFT)))": "$$mdi:rhombus-split-outline$$"
+    # for sticky Hyper (the &sk LG(LC(LA(LSHIFT))) binding)
+    "&sk LG(LC(LA(LSHIFT)))":
+      tap:   "$$mdi:rhombus-split-outline$$"
+      hold:  "$$tabler:pin$$"
 
     # Custom Behaviours
     "&tdsc": $$mdi:format-letter-case-upper$$
+    "&skq": $$tabler:pin$$
+
 
     # Reset
     "&sys_reset":
@@ -156,7 +164,7 @@ parse_config:
     NON_US_HASH: "#"
     NUHS: "#"
     TILDE2: "~"
-    GLOBE: $$mdi:language$$
+    GLOBE: $$mdi:web$$
 
     # Numbers
     # N1:
