@@ -403,8 +403,8 @@ path.combo {
 </a></g>
 <g transform="translate(644, 196)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#tabler:pin" xlink:href="#tabler:pin" x="-7" y="-7" height="14" width="14.0" class="key tap glyph tabler:pin"/>
-<use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="-6" y="12" height="12" width="12.0" class="key hold glyph mdi:apple-keyboard-option"/>
+<use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:apple-keyboard-option"/>
+<use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(700, 210)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

@@ -39,7 +39,7 @@ layers:
   - Sym
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Num
-  - {t: '$$tabler:pin$$', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
   - $$mdi:apple-keyboard-command$$
   Nav:
   - ''
