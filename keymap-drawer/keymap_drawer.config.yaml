@@ -156,6 +156,7 @@ parse_config:
     NON_US_HASH: "#"
     NUHS: "#"
     TILDE2: "~"
+    GLOBE: $$mdi:language$$
 
     # Numbers
     # N1:
