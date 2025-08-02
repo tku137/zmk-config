@@ -81,6 +81,12 @@
 <svg id="mdi:skip-previous">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-skip-previous" viewBox="0 0 24 24"><path d="M6,18V6H8V18H6M9.5,12L18,6V18L9.5,12Z" /></svg>
 </svg>
+<svg id="mdi:square-rounded">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-square-rounded" viewBox="0 0 24 24"><path d="M8 3H16C18.76 3 21 5.24 21 8V16C21 18.76 18.76 21 16 21H8C5.24 21 3 18.76 3 16V8C3 5.24 5.24 3 8 3Z" /></svg>
+</svg>
+<svg id="mdi:square-rounded-outline">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-square-rounded-outline" viewBox="0 0 24 24"><path d="M8 3H16C18.76 3 21 5.24 21 8V16C21 18.76 18.76 21 16 21H8C5.24 21 3 18.76 3 16V8C3 5.24 5.24 3 8 3M8 5C6.34 5 5 6.34 5 8V16C5 17.66 6.34 19 8 19H16C17.66 19 19 17.66 19 16V8C19 6.34 17.66 5 16 5H8Z" /></svg>
+</svg>
 <svg id="mdi:volume-high">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-volume-high" viewBox="0 0 24 24"><path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" /></svg>
 </svg>
@@ -1068,9 +1074,11 @@ path.combo {
 </g>
 <g transform="translate(644, 196)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#mdi:square-rounded" xlink:href="#mdi:square-rounded" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:square-rounded"/>
 </g>
 <g transform="translate(700, 210)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#mdi:square-rounded-outline" xlink:href="#mdi:square-rounded-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:square-rounded-outline"/>
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="238" y="113" width="28" height="26" class="combo"/>

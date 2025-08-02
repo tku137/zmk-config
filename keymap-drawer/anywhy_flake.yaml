@@ -203,8 +203,8 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
-  - ''
+  - $$mdi:square-rounded$$
+  - $$mdi:square-rounded-outline$$
 combos:
 - p: [24, 14]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
