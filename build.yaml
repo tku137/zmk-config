@@ -21,13 +21,13 @@ include:
   - shield: anywhy_flake_left
     board: nice_nano_v2
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    snippet: studio-rpc-usb-uart
     artifact-name: flake-left
   - shield: anywhy_flake_right
     board: nice_nano_v2
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: flake-right
   - shield: anywhy_flake_dongle dongle_screen
+    snippet: studio-rpc-usb-uart
     board: seeeduino_xiao_ble
     artifact-name: flake-dongle-screen
   - shield: settings_reset
