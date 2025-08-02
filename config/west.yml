@@ -4,13 +4,18 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: anywhy-io
       url-base: https://github.com/anywhy-io
+    - name: janpfischer
+      url-base: https://github.com/janpfischer
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 147c340c6e8d377304acfdd64dc86cf83ebdfef2
       import: app/west.yml
     - name: flake-zmk-module
       remote: anywhy-io
+      revision: main
+    - name: zmk-dongle-screen
+      remote: janpfischer
       revision: main
   self:
     path: config
