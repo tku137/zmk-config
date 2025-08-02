@@ -168,6 +168,8 @@ parse_config:
     NUHS: "#"
     TILDE2: "~"
     GLOBE: $$mdi:web$$
+    F23: $$mdi:square-rounded$$
+    F24: $$mdi:square-rounded-outline$$
 
     # Numbers
     # N1:
