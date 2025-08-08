@@ -40,7 +40,7 @@ layers:
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Num
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
-  - $$mdi:apple-keyboard-command$$
+  - $$mdi:rhombus-split-outline$$
   Nav:
   - ''
   - ''
@@ -203,8 +203,8 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
-  - ''
+  - F23
+  - F24
 combos:
 - p: [24, 14]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
