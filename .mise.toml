@@ -8,6 +8,7 @@ python = "3.12"
 sdk_version = "0.16.3"
 
 [env]
+_.path = ["{{config_root}}/.venv/bin"]                                  # use .venv, not the mise shims
 ZEPHYR_SDK_INSTALL_DIR = "{{env.HOME}}/zephyr-sdk-{{vars.sdk_version}}"
 ZMK_CONFIG = "{{config_root}}/config"
 
