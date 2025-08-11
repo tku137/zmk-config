@@ -185,8 +185,9 @@ depends = ["build-left", "build-right", "build-settings-reset"]
 
 [tasks.release]
 alias = ["all"]
+depends = ["build-all"]
 description = "Build everything and collect UF2s"
-depends = ["build-left", "build-right", "build-settings-reset", "artifacts"]
+depends = ["build-all", "artifacts"]
 run = "true"
 
 [tasks.clean]
