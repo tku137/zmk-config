@@ -8,7 +8,7 @@ python = "3.12"
 sdk_version = "0.16.3"
 
 [env]
-_.path = ["{{config_root}}/.venv/bin"]                                  # use .venv, not the mise shims
+_.python.venv = { path = ".venv", create = true }                       # use .venv, not the mise shims
 ZEPHYR_SDK_INSTALL_DIR = "{{env.HOME}}/zephyr-sdk-{{vars.sdk_version}}"
 ZMK_CONFIG = "{{config_root}}/config"
 
@@ -24,17 +24,9 @@ done
 
 # These are run in sequence to prepare the local development environment
 # by the 'setup-all' task and only once
-[tasks.setup-venv]
-description = "Create .venv and upgrade"
-wait_for = ["host-check"]
-run = [
-    "[ -d '.venv' ] || python -m venv .venv",
-    "python -m pip -q install --upgrade pip wheel",
-]
-
 [tasks.install-west]
 description = "Install west"
-depends = ["setup-venv"]
+wait_for = ["host-check"]
 run = ["python -m pip -q install west"]
 
 [tasks.west-init]
