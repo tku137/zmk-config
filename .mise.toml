@@ -47,7 +47,7 @@ description = "Install Python dependencies for Zephyr"
 depends = ["west-update"]
 run = [
     "python -m pip install -r zephyr/scripts/requirements-base.txt",
-    "python -m pip install -r zephyr/scripts/requirements-extra.txt",
+    "python -m pip install -r zephyr/scripts/requirements-extras.txt",
 ]
 
 # This step is a bit of a hassle, since ZMK uses old zephyr/west <4.0
@@ -162,9 +162,32 @@ west build \
      -DZMK_CONFIG=${ZMK_CONFIG}
 '''
 
+[tasks.artifacts]
+description = "Collect UF2s into ./artifacts"
+run = '''
+mkdir -p artifacts
+copied=0
+for p in build/flake-left build/flake-right build/settings-reset; do
+  uf2="$p/zephyr/zmk.uf2"
+  [ -f "$uf2" ] || uf2="$p/zephyr/zephyr.uf2"
+  if [ -f "$uf2" ]; then
+    cp "$uf2" "artifacts/$(basename "$p").uf2" || { echo "copy failed for $p"; exit 1; }
+    copied=$((copied+1))
+  fi
+done
+ls -l artifacts
+[ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
+'''
+
 [tasks.build-all]
 description = "Build all firmware variants"
 depends = ["build-left", "build-right", "build-settings-reset"]
+
+[tasks.release]
+alias = ["all"]
+description = "Build everything and collect UF2s"
+depends = ["build-left", "build-right", "build-settings-reset", "artifacts"]
+run = "true"
 
 [tasks.clean]
 description = "Clean build artifacts"
