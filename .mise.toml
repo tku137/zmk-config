@@ -162,8 +162,13 @@ west build \
      -DZMK_CONFIG=${ZMK_CONFIG}
 '''
 
+[tasks.build-all]
+description = "Build all firmware variants"
+depends = ["build-left", "build-right", "build-settings-reset"]
+
 [tasks.artifacts]
 description = "Collect UF2s into ./artifacts"
+wait_for = ["build-all"]
 run = '''
 mkdir -p artifacts
 copied=0
@@ -179,13 +184,8 @@ ls -l artifacts
 [ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
 '''
 
-[tasks.build-all]
-description = "Build all firmware variants"
-depends = ["build-left", "build-right", "build-settings-reset"]
-
 [tasks.release]
 alias = ["all"]
-depends = ["build-all"]
 description = "Build everything and collect UF2s"
 depends = ["build-all", "artifacts"]
 run = "true"
