@@ -15,6 +15,31 @@ Refer to the [ZMK docs](https://zmk.dev/docs/development/local-toolchain/setup/n
 
 Mise takes care of all the rest and provides tasks to build, update, clean, ...
 
+To get started, for example run (taken from the docs mentioned above):
+
+```bash
+sudo apt install --no-install-recommends git cmake ninja-build gperf \
+  ccache dfu-util device-tree-compiler wget \
+  python3-dev python3-pip python3-setuptools python3-tk python3-wheel xz-utils file \
+  make gcc gcc-multilib g++-multilib libsdl2-dev libmagic1
+```
+
+Then let mise set up your local dev environment (don't forget to `mise trust` first):
+
+```bash
+mise run setup-all
+```
+
+After that, have a look at `mise tasks ls`.
+
+The most important command is to trigger a full firmware build and collect artifacts in `artifacts/`, run
+
+```bash
+mise run release
+```
+
+In case needed, clean the build with `mise run clean`. Update all Zephyr/ZMK dependencies using `mise run update`.
+
 ## Licensing
 
 This repository and any firmware binaries it produces are released under the **GNU GPL v3.0**.  
