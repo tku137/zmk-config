@@ -3,6 +3,7 @@
 
 [tools]
 python = "3.12"
+"pipx:keymap-drawer" = "latest"
 
 [vars]
 sdk_version = "0.16.3"
@@ -193,10 +194,24 @@ ls -l artifacts
 [ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
 '''
 
+# Keymap-drawer tasks
+[tasks.parse-keymap]
+description = "Parse ZMK .keymap into YAML for keymap-drawer"
+run = '''
+keymap -c keymap-drawer/keymap_drawer.config.yaml parse -c 10 -z config/anywhy_flake.keymap > keymap-drawer/anywhy_flake.local.yaml
+'''
+
+[tasks.draw-keymap]
+description = "Draw SVG from YAML using per-board JSON layout"
+depends = ["parse-keymap"]
+run = '''
+keymap -c keymap-drawer/keymap_drawer.config.yaml draw keymap-drawer/anywhy_flake.local.yaml --qmk-info-json flake-zmk-module/anywhy_flake.json > keymap-drawer/anywhy_flake.local.svg
+'''
+
 [tasks.release]
 alias = ["all"]
 description = "Build everything and collect UF2s"
-depends = ["build-all", "artifacts"]
+depends = ["build-all", "artifacts", "draw-keymap"]
 run = "true"
 
 [tasks.clean]
@@ -210,6 +225,8 @@ run = [
     "rm -rf .west/",
     "rm -rf zephyr/",
     "rm -rf .venv/",
+    "rm -rf zmk/",
+    "rm -rf flake-zmk-module/",
     "echo 'All clean! Run mise run setup-all to reinstall everything.'",
 ]
 
