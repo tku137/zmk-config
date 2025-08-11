@@ -13,10 +13,20 @@ ZEPHYR_SDK_INSTALL_DIR = "{{env.HOME}}/zephyr-sdk-{{vars.sdk_version}}"
 ZMK_CONFIG = "{{config_root}}/config"
 
 # Setup tasks
+# Check if host dependencies are installed
+[tasks.host-check]
+description = "Fail if key host tools are missing (silent)"
+run = '''
+for c in cmake ninja dtc gperf wget tar shasum; do
+  command -v "$c" >/dev/null 2>&1 || exit 1
+done
+'''
+
 # These are run in sequence to prepare the local development environment
 # by the 'setup-all' task and only once
 [tasks.setup-venv]
 description = "Create .venv and upgrade"
+wait_for = ["host-check"]
 run = [
     "[ -d '.venv' ] || python -m venv .venv",
     "python -m pip -q install --upgrade pip wheel",
@@ -44,6 +54,7 @@ run = ["west zephyr-export"]
 
 [tasks.install-python-deps]
 description = "Install Python dependencies for Zephyr"
+wait_for = ["host-check"]
 depends = ["west-update"]
 run = [
     "python -m pip install -r zephyr/scripts/requirements-base.txt",
@@ -57,6 +68,7 @@ run = [
 # https://docs.zephyrproject.org/3.5.0/develop/getting_started/index.html#install-zephyr-sdk
 [tasks.install-zephyr-sdk]
 description = "Install Zephyr SDK using official Zephyr 3.5.0 method"
+wait_for = ["host-check"]
 depends = ["west-export"]
 run = '''
 SDK_VER="{{vars.sdk_version}}"
@@ -95,7 +107,7 @@ echo "Zephyr SDK ${SDK_VER} installed successfully!"
 
 [tasks.setup-all]
 description = "Complete development environment setup"
-depends = ["install-zephyr-sdk", "install-python-deps"]
+depends = ["host-check", "install-zephyr-sdk", "install-python-deps"]
 run = [
     "echo 'ZMK development environment setup complete!'",
     "echo 'Build tasks: build-left, build-right, build-settings-reset, build-all'",
