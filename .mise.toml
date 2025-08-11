@@ -27,7 +27,12 @@ done
 [tasks.install-west]
 description = "Install west"
 wait_for = ["host-check"]
-run = ["python -m pip -q install west"]
+run = [
+    # bootstrap pip if missing in the venv
+    "python -c 'import pip' 2>/dev/null || python -m ensurepip --upgrade",
+    "python -m pip -q install -U pip wheel",
+    "python -m pip -q install west",
+]
 
 [tasks.west-init]
 description = "Initialize west workspace"
