@@ -24,6 +24,8 @@ sudo apt install --no-install-recommends git cmake ninja-build gperf \
   make gcc gcc-multilib g++-multilib libsdl2-dev libmagic1
 ```
 
+Of course you need [mise](https://mise.jdx.dev/getting-started.html#installing-mise-cli) installed. Also, make sure to have `pipx` so keymap-drawer can be installed.
+
 Then let mise set up your local dev environment (don't forget to `mise trust` first):
 
 ```bash
