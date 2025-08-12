@@ -16,11 +16,19 @@ ZMK_CONFIG = "{{config_root}}/config"
 # Setup tasks
 # Check if host dependencies are installed
 [tasks.host-check]
-description = "Fail if key host tools are missing (silent)"
+description = "Fail if key host tools are missing"
 run = '''
+missing=""
 for c in cmake ninja dtc gperf wget tar shasum; do
-  command -v "$c" >/dev/null 2>&1 || exit 1
+  if ! command -v "$c" >/dev/null 2>&1; then
+    missing="$missing $c"
+  fi
 done
+if [ -n "$missing" ]; then
+  missing="${missing# }"               # trim leading space
+  printf "host-check: missing tool(s): %s\n" "$missing" >&2
+  exit 1
+fi
 '''
 
 # These are run in sequence to prepare the local development environment
