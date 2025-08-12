@@ -26,7 +26,7 @@ for c in cmake ninja dtc gperf wget tar shasum; do
 done
 if [ -n "$missing" ]; then
   missing="${missing# }"               # trim leading space
-  printf "host-check: missing tool(s): %s\n" "$missing" >&2
+  printf "missing tool(s): %s\n" "$missing" >&2
   exit 1
 fi
 '''
