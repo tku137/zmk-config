@@ -1,0 +1,232 @@
+layout: {zmk_keyboard: anywhy_flake_dongle, layout_name: small_layout}
+layers:
+  Base:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - A
+  - S
+  - D
+  - F
+  - G
+  - H
+  - J
+  - K
+  - L
+  - {t: ;, s: ':'}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
+  - {t: /, s: '?'}
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:keyboard-space$$
+  - Nav
+  - Sym
+  - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - Num
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
+  - $$mdi:apple-keyboard-command$$
+  Nav:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PG UP
+  - HOME
+  - $$mdi:arrow-up-bold$$
+  - END
+  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:rhombus-split-outline$$
+  - PG DN
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - $$mdi:keyboard-esc$$
+  - $$mdi:keyboard-tab$$
+  - ''
+  - ''
+  - $$mdi:backspace-reverse-outline$$
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  Num:
+  - ''
+  - '7'
+  - '8'
+  - '9'
+  - (
+  - )
+  - +
+  - '-'
+  - '*'
+  - /
+  - '0'
+  - '4'
+  - '5'
+  - '6'
+  - {t: ., s: '>'}
+  - {t: '$$mdi:rhombus-split-outline$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
+  - ''
+  - '1'
+  - '2'
+  - '3'
+  - {t: ',', s: <}
+  - $$mdi:currency-eur$$
+  - $
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - ''
+  - ''
+  Sym:
+  - ^
+  - <
+  - '>'
+  - '"'
+  - ''''
+  - '|'
+  - '['
+  - ']'
+  - $
+  - °
+  - '!'
+  - '-'
+  - +
+  - '='
+  - '`'
+  - '#'
+  - (
+  - )
+  - '@'
+  - '&'
+  - '~'
+  - /
+  - '*'
+  - \
+  - $$mdi:code-block-tags$$
+  - _
+  - '{'
+  - '}'
+  - '%'
+  - $$mdi:alphabet-greek$$
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  Func:
+  - F12
+  - F7
+  - F8
+  - F9
+  - {t: '$$mdi:bluetooth-connect$$', s: '$$mdi:bluetooth-off$$', right: '3'}
+  - $$mdi:power$$
+  - $$mdi:volume-off$$
+  - $$mdi:volume-low$$
+  - $$mdi:volume-high$$
+  - $$mdi:brightness-5$$
+  - F11
+  - F4
+  - F5
+  - F6
+  - {t: '$$mdi:bluetooth-connect$$', right: '2'}
+  - {t: '$$mdi:rhombus-split-outline$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
+  - F10
+  - F1
+  - F2
+  - F3
+  - {t: '$$mdi:bluetooth-connect$$', right: '1'}
+  - $$mdi:web$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-previous$$
+  - $$mdi:skip-next$$
+  - $$mdi:brightness-7$$
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - $$mdi:square-rounded$$
+  - $$mdi:square-rounded-outline$$
+combos:
+- p: [24, 14]
+  k: {t: '$$mdi:bluetooth-connect$$', right: '4'}
+  l: [Func]
+- p: [14, 4]
+  k: {t: '$$mdi:bluetooth-connect$$', right: '5'}
+  l: [Func]
+- p: [16, 17]
+  k: {t: '$$mdi:keyboard-return$$', type: enter}
+  l: [Base]
+- p: [12, 13]
+  k: $$mdi:keyboard-tab$$
+  l: [Base]
+- p: [11, 12]
+  k: $$mdi:keyboard-esc$$
+  l: [Base]
+- p: [17, 18]
+  k: {t: '$$mdi:backspace$$', type: backspace}
+  l: [Base]
+- p: [0, 10]
+  k: $$mdi:apple-keyboard-shift$$
+  l: [Base]
+- p: [9, 19]
+  k: $$mdi:apple-keyboard-shift$$
+  l: [Base]
