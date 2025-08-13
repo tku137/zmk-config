@@ -29,6 +29,7 @@ include:
   - shield: flake_screen_dongle dongle_screen
     snippet: studio-rpc-usb-uart
     board: seeeduino_xiao_ble
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: flake-dongle-screen
   - shield: settings_reset
     board: seeeduino_xiao_ble
