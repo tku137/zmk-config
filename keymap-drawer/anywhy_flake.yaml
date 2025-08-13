@@ -1,4 +1,4 @@
-layout: {zmk_keyboard: anywhy_flake, layout_name: small_layout}
+layout: {zmk_keyboard: anywhy_flake}
 layers:
   Base:
   - Q
