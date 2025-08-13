@@ -32,4 +32,7 @@ include:
     artifact-name: flake-dongle-screen
   - shield: settings_reset
     board: seeeduino_xiao_ble
-    artifact-name: flake-dongle-reset
+    artifact-name: dongle-reset
+  - shield: settings_reset
+    board: nice_nano_v2
+    artifact-name: flake-reset
