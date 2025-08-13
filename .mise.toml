@@ -153,7 +153,7 @@ west build \
   -s zmk/app -b nice_nano_v2 \
   -S studio-rpc-usb-uart \
   -- -DSHIELD=anywhy_flake_left \
-     -DZMK_CONFIG=${ZMK_CONFIG} \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
      -DCONFIG_ZMK_SPLIT=y \
      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
 '''
@@ -165,7 +165,7 @@ west build \
   -p -d build/flake-right \
   -s zmk/app -b nice_nano_v2 \
   -- -DSHIELD=anywhy_flake_right \
-     -DZMK_CONFIG=${ZMK_CONFIG} \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
      -DCONFIG_ZMK_SPLIT=y \
      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 '''
@@ -177,7 +177,7 @@ west build \
   -p -d build/settings-reset \
   -s zmk/app -b nice_nano_v2 \
   -- -DSHIELD=settings_reset \
-     -DZMK_CONFIG=${ZMK_CONFIG}
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-all]
