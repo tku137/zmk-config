@@ -26,14 +26,14 @@ include:
     board: nice_nano_v2
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: flake-right
-  - shield: flake_screen_dongle dongle_screen
+  - shield: anywhy_flake_dongle dongle_screen
     snippet: studio-rpc-usb-uart
     board: seeeduino_xiao_ble
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: flake-dongle-screen
+    artifact-name: anywhy_flake_dongle
   - shield: settings_reset
     board: seeeduino_xiao_ble
-    artifact-name: dongle-reset
+    artifact-name: reset_dongle
   - shield: settings_reset
     board: nice_nano_v2
-    artifact-name: flake-reset
+    artifact-name: reset_flake

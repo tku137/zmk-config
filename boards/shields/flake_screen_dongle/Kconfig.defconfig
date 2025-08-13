@@ -1,4 +1,4 @@
-if SHIELD_FLAKE_SCREEN_DONGLE
+if SHIELD_ANYWHY_FLAKE_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Flake Dongle"
