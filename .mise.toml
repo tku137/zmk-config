@@ -9,7 +9,9 @@ python = "3.12"
 sdk_version = "0.16.3"
 
 [env]
-_.python.venv = { path = ".venv", create = true }                       # use .venv, not the mise shims
+_.python.venv = { path = ".venv", create = true, uv_create_args = [
+    "--seed",
+] } # use .venv, not the mise shims
 ZEPHYR_SDK_INSTALL_DIR = "{{env.HOME}}/zephyr-sdk-{{vars.sdk_version}}"
 ZMK_CONFIG = "{{config_root}}/config"
 
@@ -99,7 +101,7 @@ cd /tmp && shasum --check --ignore-missing sha256.sum
 tar xf "/tmp/${TARBALL}" -C "${HOME}"
 
 # Run setup script
-"${SDK_DIR}/setup.sh" || echo "Warning: SDK setup may have failed"
+yes | "${SDK_DIR}/setup.sh" >/dev/null 2>&1 || echo "Warning: SDK setup may have failed"
 
 # Install udev rules
 RULES_FILE="${SDK_DIR}/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules"
