@@ -1074,11 +1074,11 @@ path.combo {
 </g>
 <g transform="translate(644, 196)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F23</text>
+<use href="#mdi:square-rounded" xlink:href="#mdi:square-rounded" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:square-rounded"/>
 </g>
 <g transform="translate(700, 210)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F24</text>
+<use href="#mdi:square-rounded-outline" xlink:href="#mdi:square-rounded-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:square-rounded-outline"/>
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="238" y="113" width="28" height="26" class="combo"/>
