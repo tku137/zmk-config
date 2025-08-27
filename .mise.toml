@@ -1,0 +1,266 @@
+# ZMK local development environment configuration
+# This file sets up everything needed for local ZMK firmware development
+
+[tools]
+python = "3.12"
+"pipx:keymap-drawer" = "latest"
+
+[vars]
+sdk_version = "0.16.3"
+
+[env]
+_.python.venv = { path = ".venv", create = true, uv_create_args = [
+    "--seed",
+] } # use .venv, not the mise shims
+ZEPHYR_SDK_INSTALL_DIR = "{{env.HOME}}/zephyr-sdk-{{vars.sdk_version}}"
+ZMK_CONFIG = "{{config_root}}/config"
+
+# Setup tasks
+# Check if host dependencies are installed
+[tasks.host-check]
+description = "Fail if key host tools are missing"
+run = '''
+missing=""
+for c in cmake ninja dtc gperf wget tar shasum; do
+  if ! command -v "$c" >/dev/null 2>&1; then
+    missing="$missing $c"
+  fi
+done
+if [ -n "$missing" ]; then
+  missing="${missing# }"               # trim leading space
+  printf "missing tool(s): %s\n" "$missing" >&2
+  exit 1
+fi
+'''
+
+# These are run in sequence to prepare the local development environment
+# by the 'setup-all' task and only once
+[tasks.install-west]
+description = "Install west"
+wait_for = ["host-check"]
+run = [
+    # bootstrap pip if missing in the venv
+    "python -c 'import pip' 2>/dev/null || python -m ensurepip --upgrade",
+    "python -m pip -q install -U pip wheel",
+    "python -m pip -q install west",
+]
+
+[tasks.west-init]
+description = "Initialize west workspace"
+depends = ["install-west"]
+run = ["[ -f '.west/config' ] || west init -l config"]
+
+[tasks.west-update]
+description = "Update west dependencies"
+depends = ["west-init"]
+run = ["west update"]
+
+[tasks.west-export]
+description = "Export Zephyr CMake package"
+depends = ["west-update"]
+run = ["west zephyr-export"]
+
+[tasks.install-python-deps]
+description = "Install Python dependencies for Zephyr"
+wait_for = ["host-check"]
+depends = ["west-update"]
+run = [
+    "python -m pip install -r zephyr/scripts/requirements-base.txt",
+    "python -m pip install -r zephyr/scripts/requirements-extras.txt",
+]
+
+# This step is a bit of a hassle, since ZMK uses old zephyr/west <4.0
+# and we need to install the Zephyr SDK manually (no west sdk install yet)
+# This is taken from:
+# https://zmk.dev/docs/development/local-toolchain/setup/native#4-install-zephyr-sdk
+# https://docs.zephyrproject.org/3.5.0/develop/getting_started/index.html#install-zephyr-sdk
+[tasks.install-zephyr-sdk]
+description = "Install Zephyr SDK using official Zephyr 3.5.0 method"
+wait_for = ["host-check"]
+depends = ["west-export"]
+run = '''
+SDK_VER="{{vars.sdk_version}}"
+SDK_DIR="${ZEPHYR_SDK_INSTALL_DIR}"
+
+if [ -d "${SDK_DIR}" ] && [ -x "${SDK_DIR}/setup.sh" ]; then
+    echo "SDK already present at ${SDK_DIR}"
+    exit 0
+fi
+
+echo "Installing Zephyr SDK ${SDK_VER}..."
+
+URL_BASE="https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${SDK_VER}"
+TARBALL="zephyr-sdk-${SDK_VER}_linux-x86_64.tar.xz"
+
+# Download files
+wget -q -P "/tmp" "${URL_BASE}/${TARBALL}"
+wget -q -O "/tmp/sha256.sum" "${URL_BASE}/sha256.sum"
+
+# Verify and extract
+cd /tmp && shasum --check --ignore-missing sha256.sum
+tar xf "/tmp/${TARBALL}" -C "${HOME}"
+
+# Run setup script
+yes | "${SDK_DIR}/setup.sh" >/dev/null 2>&1 || echo "Warning: SDK setup may have failed"
+
+# Install udev rules
+RULES_FILE="${SDK_DIR}/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules"
+if [ -r "${RULES_FILE}" ]; then
+    sudo cp "${RULES_FILE}" /etc/udev/rules.d/ 2>/dev/null || echo "Warning: Could not install udev rules"
+    sudo udevadm control --reload || echo "Warning: Could not reload udev rules"
+fi
+
+echo "Zephyr SDK ${SDK_VER} installed successfully!"
+'''
+
+[tasks.setup-all]
+description = "Complete development environment setup"
+depends = ["host-check", "install-zephyr-sdk", "install-python-deps"]
+run = [
+    "echo 'ZMK development environment setup complete!'",
+    "echo 'Build tasks: build-left, build-right, build-settings-reset, build-all'",
+]
+
+[tasks.update]
+description = "Update Zephyr/ZMK + Python deps"
+run = [
+    "west update",
+    "west zephyr-export",
+    "test -f zephyr/scripts/requirements-base.txt && python -m pip install -r zephyr/scripts/requirements-base.txt || true",
+    "test -f zephyr/scripts/requirements-extra.txt && python -m pip install -r zephyr/scripts/requirements-extra.txt || true",
+]
+
+[tasks.doctor]
+description = "Quick environment sanity check"
+run = '''
+echo "west:" $(west --version 2>/dev/null || echo "not found")
+echo "cmake:" $(cmake --version 2>/dev/null | head -n1 || echo "not found")
+echo "ninja:" $(ninja --version 2>/dev/null || echo "not found")
+echo "dtc:" $(dtc --version 2>/dev/null | head -n1 || echo "not found")
+echo "python:" $(python --version 2>/dev/null || echo "not found")
+echo "ZEPHYR_SDK_INSTALL_DIR=$ZEPHYR_SDK_INSTALL_DIR"
+if [ -d "$ZEPHYR_SDK_INSTALL_DIR" ]; then
+    echo "SDK status: installed"
+else
+    echo "SDK status: not found"
+fi
+'''
+
+# Build tasks
+[tasks.build-left]
+description = "Build left side (central) of split keyboard with studio support"
+run = '''
+west build \
+  -p -d build/flake-left \
+  -s zmk/app -b nice_nano_v2 \
+  -S studio-rpc-usb-uart \
+  -- -DSHIELD=anywhy_flake_left \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_SPLIT=y \
+     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+'''
+
+[tasks.build-right]
+description = "Build right side (peripheral) of split keyboard"
+run = '''
+west build \
+  -p -d build/flake-right \
+  -s zmk/app -b nice_nano_v2 \
+  -- -DSHIELD=anywhy_flake_right \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_SPLIT=y \
+     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+'''
+
+[tasks.build-settings-reset]
+description = "Build settings reset firmware"
+run = '''
+west build \
+  -p -d build/settings-reset \
+  -s zmk/app -b nice_nano_v2 \
+  -- -DSHIELD=settings_reset \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-all]
+description = "Build all firmware variants"
+depends = ["build-left", "build-right", "build-settings-reset"]
+
+[tasks.artifacts]
+description = "Collect UF2s into ./artifacts"
+wait_for = ["build-all"]
+run = '''
+mkdir -p artifacts
+copied=0
+for p in build/flake-left build/flake-right build/settings-reset; do
+  uf2="$p/zephyr/zmk.uf2"
+  [ -f "$uf2" ] || uf2="$p/zephyr/zephyr.uf2"
+  if [ -f "$uf2" ]; then
+    cp "$uf2" "artifacts/$(basename "$p").uf2" || { echo "copy failed for $p"; exit 1; }
+    copied=$((copied+1))
+  fi
+done
+ls -l artifacts
+[ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
+'''
+
+# Keymap-drawer tasks
+[tasks.parse-keymap]
+description = "Parse ZMK .keymap into YAML for keymap-drawer"
+run = '''
+keymap -c keymap-drawer/keymap_drawer.config.yaml parse -c 10 -z config/anywhy_flake.keymap > keymap-drawer/anywhy_flake.local.yaml
+'''
+
+[tasks.draw-keymap]
+description = "Draw SVG from YAML using per-board JSON layout"
+depends = ["parse-keymap"]
+run = '''
+keymap -c keymap-drawer/keymap_drawer.config.yaml draw keymap-drawer/anywhy_flake.local.yaml --qmk-info-json flake-zmk-module/anywhy_flake.json > keymap-drawer/anywhy_flake.local.svg
+'''
+
+[tasks.release]
+alias = ["all"]
+description = "Build everything and collect UF2s"
+depends = ["build-all", "artifacts", "draw-keymap"]
+run = "true"
+
+[tasks.clean]
+description = "Clean build artifacts"
+run = "rm -rf build/"
+
+[tasks.clean-all]
+description = "Clean everything (build + dependencies)"
+run = [
+    "rm -rf build/",
+    "rm -rf .west/",
+    "rm -rf zephyr/",
+    "rm -rf .venv/",
+    "rm -rf zmk/",
+    "rm -rf flake-zmk-module/",
+    "echo 'All clean! Run mise run setup-all to reinstall everything.'",
+]
+
+# Development helpers
+[tasks.west]
+description = "Run west command with proper environment"
+run = '''
+west "$@"
+'''
+
+[tasks.menuconfig]
+description = "Open Zephyr menuconfig for the last built target"
+run = '''
+west build -t menuconfig
+'''
+
+[tasks.list-boards]
+description = "List all available boards"
+run = '''
+west boards
+'''
+
+[tasks.pristine]
+description = "Clean and rebuild from scratch"
+run = '''
+west build -p
+'''

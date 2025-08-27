@@ -21,3 +21,7 @@ app/.cache/
 config/anywhy_flake.json
 config/anywhy_flake.yaml
 keymap-drawer/*.local.svg
+artifacts/
+flake-zmk-module/
+keymap-drawer/anywhy_flake.local.yaml
+zmk/
