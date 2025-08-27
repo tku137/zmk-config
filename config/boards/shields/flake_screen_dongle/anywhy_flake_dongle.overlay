@@ -74,4 +74,21 @@ RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)  RC(4,6) RC(4,7) RC(4,8) RC(4,9) RC(4,10
             , <&key_physical_attrs 100 100 1200  325       0     0     0>
             ;
     };
+
+    position_map {
+        compatible = "zmk,physical-layout-position-map";
+
+        complete;
+
+        small_layout {
+            physical-layout = <&small_layout>;
+            positions
+                = <40 41 42 43 44 45 46 47 48 49 50 51>
+                , <52  0  1  2  3  4  5  6  7  8  9 53>
+                , <54 10 11 12 13 14 15 16 17 18 19 55>
+                , <56 20 21 22 23 24 25 26 27 28 29 57>
+                , <   30 31 32 33 34 35 36 37 38 39   >
+                ;
+        };
+    };
 };
