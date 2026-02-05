@@ -264,3 +264,93 @@ description = "Clean and rebuild from scratch"
 run = '''
 west build -p
 '''
+
+# YADS Dongle Build Tasks
+[tasks.build-dongle]
+description = "Build dongle with YADS screen (central)"
+run = '''
+west build \
+  -p -d build/flake-dongle \
+  -s zmk/app -b seeeduino_xiao_ble \
+  -- -DSHIELD="anywhy_flake_dongle dongle_screen" \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-left-peripheral]
+description = "Build left side as peripheral (for dongle setup)"
+run = '''
+west build \
+  -p -d build/flake-left \
+  -s zmk/app -b nice_nano_v2 \
+  -- -DSHIELD=anywhy_flake_left \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_SPLIT=y \
+     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+'''
+
+[tasks.build-right-peripheral]
+description = "Build right side as peripheral (for dongle setup)"
+run = '''
+west build \
+  -p -d build/flake-right \
+  -s zmk/app -b nice_nano_v2 \
+  -- -DSHIELD=anywhy_flake_right \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_SPLIT=y \
+     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+'''
+
+[tasks.build-reset-dongle]
+description = "Build settings reset for dongle"
+run = '''
+west build \
+  -p -d build/reset-dongle \
+  -s zmk/app -b seeeduino_xiao_ble \
+  -- -DSHIELD=settings_reset \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-reset-flake]
+description = "Build settings reset for keyboard halves"
+run = '''
+west build \
+  -p -d build/reset-flake \
+  -s zmk/app -b nice_nano_v2 \
+  -- -DSHIELD=settings_reset \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-all-dongle]
+description = "Build all firmware for dongle setup"
+depends = ["build-left-peripheral", "build-right-peripheral", "build-dongle", "build-reset-flake", "build-reset-dongle"]
+
+[tasks.artifacts-dongle]
+description = "Collect UF2s for dongle setup into ./artifacts"
+wait_for = ["build-all-dongle"]
+run = '''
+mkdir -p artifacts
+copied=0
+for p in build/flake-left build/flake-right build/flake-dongle build/reset-flake build/reset-dongle; do
+  uf2="$p/zephyr/zmk.uf2"
+  [ -f "$uf2" ] || uf2="$p/zephyr/zephyr.uf2"
+  if [ -f "$uf2" ]; then
+    cp "$uf2" "artifacts/$(basename "$p").uf2" || { echo "copy failed for $p"; exit 1; }
+    copied=$((copied+1))
+  fi
+done
+ls -lh artifacts
+[ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
+'''
+
+[tasks.dongle]
+description = "Build everything for dongle setup and collect UF2s"
+depends = ["build-all-dongle", "artifacts-dongle"]
+run = '''
+echo "✅ All firmware built successfully!"
+echo "Artifacts ready in ./artifacts/"
+echo ""
+echo "Flash order:"
+echo "1. Reset: flash reset-flake.uf2 to left & right, reset-dongle.uf2 to dongle"
+echo "2. Firmware: flash flake-left.uf2 to left, flake-right.uf2 to right, flake-dongle.uf2 to dongle"
+echo "3. Pair: power on dongle → left → right (in that order)"
+'''
