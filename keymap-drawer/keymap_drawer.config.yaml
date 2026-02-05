@@ -2,7 +2,6 @@ parse_config:
   preprocess: false
   sticky_label: $$tabler:pin$$
   raw_binding_map:
-
     # System
     "&soft_off":
       tap: $$mdi:power$$
@@ -33,16 +32,15 @@ parse_config:
     "&kp LG(LC(LA(LSHIFT)))": "$$mdi:rhombus-split-outline$$"
     # for sticky Hyper (the &sk LG(LC(LA(LSHIFT))) binding)
     "&sk LG(LC(LA(LSHIFT)))":
-      tap:   "$$mdi:rhombus-split-outline$$"
-      hold:  "$$tabler:pin$$"
+      tap: "$$mdi:rhombus-split-outline$$"
+      hold: "$$tabler:pin$$"
     "&sm RALT RALT":
-      tap:   "$$mdi:apple-keyboard-option$$"
-      hold:  "$$tabler:pin$$"
+      tap: "$$mdi:apple-keyboard-option$$"
+      hold: "$$tabler:pin$$"
 
     # Custom Behaviours
     "&tdsc": $$mdi:format-letter-case-upper$$
     "&skq": $$tabler:pin$$
-
 
     # Reset
     "&sys_reset":
@@ -56,7 +54,6 @@ parse_config:
     "&greek": $$mdi:alphabet-greek$$
     "&codeblock": $$mdi:code-block-tags$$
     "&euro": $$mdi:currency-eur$$
-
 
   # ZMK keycodes to symbols
   zmk_keycode_map:
@@ -213,7 +210,7 @@ parse_config:
     RSHFT: $$mdi:apple-keyboard-shift$$
     RGUI: $$mdi:apple-keyboard-command$$
     # "Meh" key
-    LS(LC(LALT)): $$mdi:star-three-points$$
+    LC(LA(LSHIFT)): $$mdi:star-three-points$$
 
     # Arrows
     UP: $$mdi:arrow-up-bold$$
@@ -264,3 +261,11 @@ parse_config:
     C_POWER: $$mdi:power-standby$$
     C_AL_LOCK: $$mdi:lock$$
     K_CANCEL: $$mdi:close-box$$
+
+    # YADS Dongle Control
+    F22:
+      tap: "yds\noff" # Toggle display on/off
+    F23:
+      tap: "yds\n-" # Brightness down
+    F24:
+      tap: "yds\n+" # Brightness up
