@@ -2,15 +2,20 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: anywhy-io
-      url-base: https://github.com/anywhy-io
+    - name: tku137
+      url-base: https://github.com/tku137
+    - name: janpfischer
+      url-base: https://github.com/janpfischer
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3.0
       import: app/west.yml
     - name: flake-zmk-module
-      remote: anywhy-io
-      revision: 796f7a689e8d9a53fec0ad0f3cd24db37136eca9
+      remote: tku137
+      revision: yads-dongle-support
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: main
   self:
     path: config
