@@ -14,6 +14,6 @@ manifest:
       revision: yads-dongle-support
     - name: zmk-dongle-screen
       remote: tku137
-      revision: caps-word
+      revision: my-setup
   self:
     path: config
