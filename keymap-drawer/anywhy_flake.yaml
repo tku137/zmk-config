@@ -198,7 +198,7 @@ layers:
   - ''
   - ''
   - ''
-  - {t: ▽, type: trans}
+  - {t: '$$mdi:usb$$', h: '$$mdi:toggle-switch$$'}
   - {type: held}
   - {type: held}
   - {t: ▽, type: trans}
