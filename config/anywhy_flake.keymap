@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / { chosen { zmk,physical-layout = &small_layout; }; };
 
@@ -279,7 +280,7 @@
 &kp F12     &kp F7      &kp F8      &kp F9      &bt2                        &soft_off    &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP
 &kp F11     &kp F4      &kp F5      &kp F6      &bt1                        &sk LC(LA(LSHIFT))  &sk LSHFT     &sk LCTRL     &sk LALT      &sk LGUI
 &kp F10     &kp F1      &kp F2      &kp F3      &bt0                        &kp GLOBE    &kp C_PP      &kp C_PREV    &kp C_NEXT    &kp C_BRI_DN
-&none       &none       &none       &trans      &trans                      &trans       &trans        &kp F22       &kp F23       &kp F24 
+&none       &none       &none       &out OUT_TOG  &trans                    &trans       &trans        &kp F22       &kp F23       &kp F24 
             >;
         };
     };

@@ -26,6 +26,11 @@ parse_config:
       tap: $$mdi:bluetooth-connect$$
       right: 5
 
+    # USB/BT
+    "&out OUT_TOG":
+      tap: $$mdi:usb$$
+      bottom: $$mdi:toggle-switch$$
+
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
     # for one‑shot Hyper (the &kp LG(LC(LA(LSHIFT))) binding)
