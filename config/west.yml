@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: tku137
       url-base: https://github.com/tku137
-    - name: janpfischer
-      url-base: https://github.com/janpfischer
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -15,7 +13,7 @@ manifest:
       remote: tku137
       revision: yads-dongle-support
     - name: zmk-dongle-screen
-      remote: janpfischer
-      revision: main
+      remote: tku137
+      revision: caps-word
   self:
     path: config
