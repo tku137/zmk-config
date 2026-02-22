@@ -2,15 +2,18 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: anywhy-io
-      url-base: https://github.com/anywhy-io
+    - name: tku137
+      url-base: https://github.com/tku137
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 9490391e1e4010c83291d437b7f9a71ace244581  # main, Feb 18 2026
       import: app/west.yml
     - name: flake-zmk-module
-      remote: anywhy-io
-      revision: 796f7a689e8d9a53fec0ad0f3cd24db37136eca9
+      remote: tku137
+      revision: feat/zephyr-4.1
+    - name: prospector-zmk-module
+      remote: tku137
+      revision: feat/new-status-screens
   self:
     path: config

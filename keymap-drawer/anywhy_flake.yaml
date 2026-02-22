@@ -40,7 +40,7 @@ layers:
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Num
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
-  - $$mdi:rhombus-split-outline$$
+  - $$mdi:star-three-points$$
   Nav:
   - ''
   - ''
@@ -56,7 +56,7 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-shift$$
-  - $$mdi:rhombus-split-outline$$
+  - $$mdi:star-three-points$$
   - PG DN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -98,7 +98,7 @@ layers:
   - '5'
   - '6'
   - {t: ., s: '>'}
-  - {t: '$$mdi:rhombus-split-outline$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:star-three-points$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
@@ -180,7 +180,7 @@ layers:
   - F5
   - F6
   - {t: '$$mdi:bluetooth-connect$$', right: '2'}
-  - {t: '$$mdi:rhombus-split-outline$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:star-three-points$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
@@ -198,13 +198,19 @@ layers:
   - ''
   - ''
   - ''
-  - {t: ▽, type: trans}
+  - {t: '$$mdi:usb$$', h: '$$mdi:toggle-switch$$'}
   - {type: held}
   - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - F23
-  - F24
+  - 'prs
+
+    off'
+  - 'prs
+
+    -'
+  - 'prs
+
+    +'
 combos:
 - p: [24, 14]
   k: {t: '$$mdi:bluetooth-connect$$', right: '4'}

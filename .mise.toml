@@ -21,7 +21,7 @@ ZMK_CONFIG = "{{config_root}}/config"
 description = "Fail if key host tools are missing"
 run = '''
 missing=""
-for c in cmake ninja dtc gperf wget tar shasum; do
+for c in cmake ninja dtc gperf wget tar shasum protoc; do
   if ! command -v "$c" >/dev/null 2>&1; then
     missing="$missing $c"
   fi
@@ -67,6 +67,7 @@ depends = ["west-update"]
 run = [
     "python -m pip install -r zephyr/scripts/requirements-base.txt",
     "python -m pip install -r zephyr/scripts/requirements-extras.txt",
+    "python -m pip install protobuf grpcio-tools",  # required for ZMK Studio nanopb codegen
 ]
 
 # This step is a bit of a hassle, since ZMK uses old zephyr/west <4.0
@@ -75,7 +76,7 @@ run = [
 # https://zmk.dev/docs/development/local-toolchain/setup/native#4-install-zephyr-sdk
 # https://docs.zephyrproject.org/3.5.0/develop/getting_started/index.html#install-zephyr-sdk
 [tasks.install-zephyr-sdk]
-description = "Install Zephyr SDK using official Zephyr 3.5.0 method"
+description = "Install Zephyr SDK using official Zephyr 4.1 method"
 wait_for = ["host-check"]
 depends = ["west-export"]
 run = '''
@@ -148,16 +149,13 @@ fi
 
 # Build tasks
 [tasks.build-left]
-description = "Build left side (central) of split keyboard with studio support"
+description = "Build left side (peripheral) of split keyboard"
 run = '''
 west build \
   -p -d build/flake-left \
-  -s zmk/app -b nice_nano_v2 \
-  -S studio-rpc-usb-uart \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_left \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-right]
@@ -165,11 +163,9 @@ description = "Build right side (peripheral) of split keyboard"
 run = '''
 west build \
   -p -d build/flake-right \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_right \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-settings-reset]
@@ -177,7 +173,7 @@ description = "Build settings reset firmware"
 run = '''
 west build \
   -p -d build/settings-reset \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=settings_reset \
      -DZMK_CONFIG="$ZMK_CONFIG"
 '''
@@ -237,6 +233,7 @@ run = [
     "rm -rf .venv/",
     "rm -rf zmk/",
     "rm -rf flake-zmk-module/",
+    "rm -rf prospector-zmk-module/",
     "echo 'All clean! Run mise run setup-all to reinstall everything.'",
 ]
 
@@ -263,4 +260,92 @@ west boards
 description = "Clean and rebuild from scratch"
 run = '''
 west build -p
+'''
+
+# Prospector Dongle Build Tasks
+[tasks.build-dongle]
+description = "Build dongle with Prospector OPERATOR screen (central + ZMK Studio)"
+run = '''
+west build \
+  -p -d build/flake-dongle \
+  -s zmk/app -b "xiao_ble//zmk" \
+  -S studio-rpc-usb-uart \
+  -- -DSHIELD="anywhy_flake_dongle prospector_adapter" \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_STUDIO=y
+'''
+
+[tasks.build-left-peripheral]
+description = "Build left side as peripheral (for dongle setup)"
+run = '''
+west build \
+  -p -d build/flake-left \
+  -s zmk/app -b "nice_nano//zmk" \
+  -- -DSHIELD=anywhy_flake_left \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-right-peripheral]
+description = "Build right side as peripheral (for dongle setup)"
+run = '''
+west build \
+  -p -d build/flake-right \
+  -s zmk/app -b "nice_nano//zmk" \
+  -- -DSHIELD=anywhy_flake_right \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-reset-dongle]
+description = "Build settings reset for dongle"
+run = '''
+west build \
+  -p -d build/reset-dongle \
+  -s zmk/app -b "xiao_ble//zmk" \
+  -- -DSHIELD=settings_reset \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-reset-flake]
+description = "Build settings reset for keyboard halves"
+run = '''
+west build \
+  -p -d build/reset-flake \
+  -s zmk/app -b "nice_nano//zmk" \
+  -- -DSHIELD=settings_reset \
+     -DZMK_CONFIG="$ZMK_CONFIG"
+'''
+
+[tasks.build-all-dongle]
+description = "Build all firmware for dongle setup"
+depends = ["build-left-peripheral", "build-right-peripheral", "build-dongle", "build-reset-flake", "build-reset-dongle"]
+
+[tasks.artifacts-dongle]
+description = "Collect UF2s for dongle setup into ./artifacts"
+wait_for = ["build-all-dongle"]
+run = '''
+mkdir -p artifacts
+copied=0
+for p in build/flake-left build/flake-right build/flake-dongle build/reset-flake build/reset-dongle; do
+  uf2="$p/zephyr/zmk.uf2"
+  [ -f "$uf2" ] || uf2="$p/zephyr/zephyr.uf2"
+  if [ -f "$uf2" ]; then
+    cp "$uf2" "artifacts/$(basename "$p").uf2" || { echo "copy failed for $p"; exit 1; }
+    copied=$((copied+1))
+  fi
+done
+ls -lh artifacts
+[ "$copied" -gt 0 ] || echo "No UF2s found (did the builds succeed?)"
+'''
+
+[tasks.dongle]
+description = "Build everything for dongle setup and collect UF2s"
+depends = ["build-all-dongle", "artifacts-dongle"]
+run = '''
+echo "✅ All firmware built successfully!"
+echo "Artifacts ready in ./artifacts/"
+echo ""
+echo "Flash order:"
+echo "1. Reset: flash reset-flake.uf2 to left & right, reset-dongle.uf2 to dongle"
+echo "2. Firmware: flash flake-left.uf2 to left, flake-right.uf2 to right, flake-dongle.uf2 to dongle"
+echo "3. Pair: power on dongle → left → right (in that order)"
 '''

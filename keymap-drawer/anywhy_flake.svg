@@ -72,14 +72,20 @@
 <svg id="mdi:power">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-power" viewBox="0 0 24 24"><path d="M16.56,5.44L15.11,6.89C16.84,7.94 18,9.83 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12C6,9.83 7.16,7.94 8.88,6.88L7.44,5.44C5.36,6.88 4,9.28 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12C20,9.28 18.64,6.88 16.56,5.44M13,3H11V13H13" /></svg>
 </svg>
-<svg id="mdi:rhombus-split-outline">
-<svg xmlns="http://www.w3.org/2000/svg" id="mdi-rhombus-split-outline" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41L10.59 21.41C11.37 22.2 12.63 22.2 13.41 21.41L21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4L15.29 7.29L12 10.59L8.71 7.29L12 4M7.29 8.71L10.59 12L7.29 15.29L4 12L7.29 8.71M16.71 8.71L20 12L16.71 15.29L13.41 12L16.71 8.71M12 13.41L15.29 16.71L12 20L8.71 16.71L12 13.41Z" /></svg>
-</svg>
 <svg id="mdi:skip-next">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-skip-next" viewBox="0 0 24 24"><path d="M16,18H18V6H16M6,18L14.5,12L6,6V18Z" /></svg>
 </svg>
 <svg id="mdi:skip-previous">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-skip-previous" viewBox="0 0 24 24"><path d="M6,18V6H8V18H6M9.5,12L18,6V18L9.5,12Z" /></svg>
+</svg>
+<svg id="mdi:star-three-points">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-star-three-points" viewBox="0 0 24 24"><path d="M12,2.6L9,12.4L2,19.9L12,17.6L22,20L15,12.5L12,2.6Z" /></svg>
+</svg>
+<svg id="mdi:toggle-switch">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-toggle-switch" viewBox="0 0 24 24"><path d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M17,15A3,3 0 0,1 14,12A3,3 0 0,1 17,9A3,3 0 0,1 20,12A3,3 0 0,1 17,15Z" /></svg>
+</svg>
+<svg id="mdi:usb">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-usb" viewBox="0 0 24 24"><path d="M15,7V11H16V13H13V5H15L12,1L9,5H11V13H8V10.93C8.7,10.56 9.2,9.85 9.2,9C9.2,7.78 8.21,6.8 7,6.8C5.78,6.8 4.8,7.78 4.8,9C4.8,9.85 5.3,10.56 6,10.93V13A2,2 0 0,0 8,15H11V18.05C10.29,18.41 9.8,19.15 9.8,20A2.2,2.2 0 0,0 12,22.2A2.2,2.2 0 0,0 14.2,20C14.2,19.15 13.71,18.41 13,18.05V15H16A2,2 0 0,0 18,13V11H19V7H15Z" /></svg>
 </svg>
 <svg id="mdi:volume-high">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-volume-high" viewBox="0 0 24 24"><path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" /></svg>
@@ -408,7 +414,7 @@ path.combo {
 </g>
 <g transform="translate(700, 210)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:rhombus-split-outline" xlink:href="#mdi:rhombus-split-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:rhombus-split-outline"/>
+<use href="#mdi:star-three-points" xlink:href="#mdi:star-three-points" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:star-three-points"/>
 </g>
 <g class="combo enter combopos-0">
 <rect rx="6" ry="6" x="602" y="78" width="28" height="26" class="combo enter"/>
@@ -494,7 +500,7 @@ path.combo {
 </g>
 <g transform="translate(252, 98)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:rhombus-split-outline" xlink:href="#mdi:rhombus-split-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:rhombus-split-outline"/>
+<use href="#mdi:star-three-points" xlink:href="#mdi:star-three-points" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:star-three-points"/>
 </g>
 <g transform="translate(532, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -652,7 +658,7 @@ path.combo {
 </g>
 <g transform="translate(532, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:rhombus-split-outline" xlink:href="#mdi:rhombus-split-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:rhombus-split-outline"/>
+<use href="#mdi:star-three-points" xlink:href="#mdi:star-three-points" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:star-three-points"/>
 <use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(588, 98)" class="key keypos-16">
@@ -975,7 +981,7 @@ path.combo {
 </g>
 <g transform="translate(532, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:rhombus-split-outline" xlink:href="#mdi:rhombus-split-outline" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:rhombus-split-outline"/>
+<use href="#mdi:star-three-points" xlink:href="#mdi:star-three-points" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:star-three-points"/>
 <use href="#tabler:pin" xlink:href="#tabler:pin" x="-6" y="12" height="12" width="12.0" class="key hold glyph tabler:pin"/>
 </g>
 <g transform="translate(588, 98)" class="key keypos-16">
@@ -1048,9 +1054,10 @@ path.combo {
 <g transform="translate(196, 210)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(258, 218) rotate(15.0)" class="key trans keypos-33">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(258, 218) rotate(15.0)" class="key keypos-33">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#mdi:usb" xlink:href="#mdi:usb" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:usb"/>
+<use href="#mdi:toggle-switch" xlink:href="#mdi:toggle-switch" x="-6" y="12" height="12" width="12.0" class="key hold glyph mdi:toggle-switch"/>
 </g>
 <g transform="translate(318, 244) rotate(30.0)" class="key held keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
@@ -1062,17 +1069,23 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(588, 210)" class="key trans keypos-37">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(588, 210)" class="key keypos-37">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">prs</tspan><tspan x="0" dy="1.2em">off</tspan>
+</text>
 </g>
 <g transform="translate(644, 196)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F23</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">prs</tspan><tspan x="0" dy="1.2em">-</tspan>
+</text>
 </g>
 <g transform="translate(700, 210)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F24</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">prs</tspan><tspan x="0" dy="1.2em">+</tspan>
+</text>
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="238" y="113" width="28" height="26" class="combo"/>
