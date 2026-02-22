@@ -14,6 +14,6 @@ manifest:
       revision: feat/zephyr-4.1
     - name: prospector-zmk-module
       remote: tku137
-      revision: feat/new-status-screens
+      revision: my-setup
   self:
     path: config
