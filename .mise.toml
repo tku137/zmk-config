@@ -6,7 +6,7 @@ python = "3.12"
 "pipx:keymap-drawer" = "latest"
 
 [vars]
-sdk_version = "0.17.0"
+sdk_version = "0.16.3"
 
 [env]
 _.python.venv = { path = ".venv", create = true, uv_create_args = [
@@ -21,7 +21,7 @@ ZMK_CONFIG = "{{config_root}}/config"
 description = "Fail if key host tools are missing"
 run = '''
 missing=""
-for c in cmake ninja dtc gperf wget tar shasum; do
+for c in cmake ninja dtc gperf wget tar shasum protoc; do
   if ! command -v "$c" >/dev/null 2>&1; then
     missing="$missing $c"
   fi
@@ -67,6 +67,7 @@ depends = ["west-update"]
 run = [
     "python -m pip install -r zephyr/scripts/requirements-base.txt",
     "python -m pip install -r zephyr/scripts/requirements-extras.txt",
+    "python -m pip install protobuf grpcio-tools",  # required for ZMK Studio nanopb codegen
 ]
 
 # This step is a bit of a hassle, since ZMK uses old zephyr/west <4.0
