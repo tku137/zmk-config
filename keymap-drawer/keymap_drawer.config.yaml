@@ -269,8 +269,8 @@ parse_config:
 
     # YADS Dongle Control
     F22:
-      tap: "yds\noff" # Toggle display on/off
+      tap: "prs\noff" # Toggle display on/off
     F23:
-      tap: "yds\n-" # Brightness down
+      tap: "prs\n-" # Brightness down
     F24:
-      tap: "yds\n+" # Brightness up
+      tap: "prs\n+" # Brightness up
