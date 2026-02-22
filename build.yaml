@@ -1,27 +1,27 @@
-# Build configuration for Flake S with YADS dongle
+# Build configuration for Flake S with Prospector dongle (ZMK main / Zephyr 4.1)
 ---
 include:
   # Left peripheral
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: anywhy_flake_left
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: flake-left
-  
-  # Right peripheral  
-  - board: nice_nano_v2
+
+  # Right peripheral
+  - board: nice_nano//zmk
     shield: anywhy_flake_right
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: flake-right
-  
-  # Dongle with YADS screen
-  - board: seeeduino_xiao_ble
-    shield: anywhy_flake_dongle dongle_screen
+
+  # Dongle with Prospector OPERATOR screen + ZMK Studio (central)
+  - board: xiao_ble//zmk
+    shield: anywhy_flake_dongle prospector_adapter
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: flake-dongle
-  
+
   # Settings reset for all boards
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: settings_reset
     artifact-name: reset-dongle
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: settings_reset
     artifact-name: reset-flake

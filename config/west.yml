@@ -7,13 +7,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3.0
+      revision: 9490391e1e4010c83291d437b7f9a71ace244581  # main, Feb 18 2026
       import: app/west.yml
     - name: flake-zmk-module
       remote: tku137
-      revision: yads-dongle-support
-    - name: zmk-dongle-screen
+      revision: feat/zephyr-4.1
+    - name: prospector-zmk-module
       remote: tku137
-      revision: my-setup
+      revision: feat/new-status-screens
   self:
     path: config

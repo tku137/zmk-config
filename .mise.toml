@@ -6,7 +6,7 @@ python = "3.12"
 "pipx:keymap-drawer" = "latest"
 
 [vars]
-sdk_version = "0.16.3"
+sdk_version = "0.17.0"
 
 [env]
 _.python.venv = { path = ".venv", create = true, uv_create_args = [
@@ -75,7 +75,7 @@ run = [
 # https://zmk.dev/docs/development/local-toolchain/setup/native#4-install-zephyr-sdk
 # https://docs.zephyrproject.org/3.5.0/develop/getting_started/index.html#install-zephyr-sdk
 [tasks.install-zephyr-sdk]
-description = "Install Zephyr SDK using official Zephyr 3.5.0 method"
+description = "Install Zephyr SDK using official Zephyr 4.1 method"
 wait_for = ["host-check"]
 depends = ["west-export"]
 run = '''
@@ -148,16 +148,13 @@ fi
 
 # Build tasks
 [tasks.build-left]
-description = "Build left side (central) of split keyboard with studio support"
+description = "Build left side (peripheral) of split keyboard"
 run = '''
 west build \
   -p -d build/flake-left \
-  -s zmk/app -b nice_nano_v2 \
-  -S studio-rpc-usb-uart \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_left \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-right]
@@ -165,11 +162,9 @@ description = "Build right side (peripheral) of split keyboard"
 run = '''
 west build \
   -p -d build/flake-right \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_right \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-settings-reset]
@@ -177,7 +172,7 @@ description = "Build settings reset firmware"
 run = '''
 west build \
   -p -d build/settings-reset \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=settings_reset \
      -DZMK_CONFIG="$ZMK_CONFIG"
 '''
@@ -237,6 +232,7 @@ run = [
     "rm -rf .venv/",
     "rm -rf zmk/",
     "rm -rf flake-zmk-module/",
+    "rm -rf prospector-zmk-module/",
     "echo 'All clean! Run mise run setup-all to reinstall everything.'",
 ]
 
@@ -265,15 +261,17 @@ run = '''
 west build -p
 '''
 
-# YADS Dongle Build Tasks
+# Prospector Dongle Build Tasks
 [tasks.build-dongle]
-description = "Build dongle with YADS screen (central)"
+description = "Build dongle with Prospector OPERATOR screen (central + ZMK Studio)"
 run = '''
 west build \
   -p -d build/flake-dongle \
-  -s zmk/app -b seeeduino_xiao_ble \
-  -- -DSHIELD="anywhy_flake_dongle dongle_screen" \
-     -DZMK_CONFIG="$ZMK_CONFIG"
+  -s zmk/app -b "xiao_ble//zmk" \
+  -S studio-rpc-usb-uart \
+  -- -DSHIELD="anywhy_flake_dongle prospector_adapter" \
+     -DZMK_CONFIG="$ZMK_CONFIG" \
+     -DCONFIG_ZMK_STUDIO=y
 '''
 
 [tasks.build-left-peripheral]
@@ -281,11 +279,9 @@ description = "Build left side as peripheral (for dongle setup)"
 run = '''
 west build \
   -p -d build/flake-left \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_left \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-right-peripheral]
@@ -293,11 +289,9 @@ description = "Build right side as peripheral (for dongle setup)"
 run = '''
 west build \
   -p -d build/flake-right \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=anywhy_flake_right \
-     -DZMK_CONFIG="$ZMK_CONFIG" \
-     -DCONFIG_ZMK_SPLIT=y \
-     -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+     -DZMK_CONFIG="$ZMK_CONFIG"
 '''
 
 [tasks.build-reset-dongle]
@@ -305,7 +299,7 @@ description = "Build settings reset for dongle"
 run = '''
 west build \
   -p -d build/reset-dongle \
-  -s zmk/app -b seeeduino_xiao_ble \
+  -s zmk/app -b "xiao_ble//zmk" \
   -- -DSHIELD=settings_reset \
      -DZMK_CONFIG="$ZMK_CONFIG"
 '''
@@ -315,7 +309,7 @@ description = "Build settings reset for keyboard halves"
 run = '''
 west build \
   -p -d build/reset-flake \
-  -s zmk/app -b nice_nano_v2 \
+  -s zmk/app -b "nice_nano//zmk" \
   -- -DSHIELD=settings_reset \
      -DZMK_CONFIG="$ZMK_CONFIG"
 '''
