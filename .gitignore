@@ -26,3 +26,5 @@ flake-zmk-module/
 keymap-drawer/anywhy_flake.local.yaml
 zmk/
 zmk-dongle-screen/
+prospector-zmk-module/
+notes/
