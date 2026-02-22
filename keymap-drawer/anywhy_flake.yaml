@@ -202,13 +202,13 @@ layers:
   - {type: held}
   - {type: held}
   - {t: ▽, type: trans}
-  - 'yds
+  - 'prs
 
     off'
-  - 'yds
+  - 'prs
 
     -'
-  - 'yds
+  - 'prs
 
     +'
 combos:
