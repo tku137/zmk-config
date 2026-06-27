@@ -6,6 +6,7 @@ on:
     paths:
       - "config/*.keymap"
       - "keymap-drawer/keymap_drawer.config.yaml"
+      - "keymap-drawer/*.base.yaml"
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -31,4 +32,4 @@ jobs:
       # 6) Emit both YAML+SVG into keymap-drawer/
       output_folder: "keymap-drawer"
       # (No special parse-time args needed)
-      parse_args: ""
+      parse_args: "anywhy_flake:'-b keymap-drawer/anywhy_flake.base.yaml'"

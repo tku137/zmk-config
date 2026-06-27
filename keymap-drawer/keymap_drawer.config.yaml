@@ -60,6 +60,29 @@ parse_config:
     "&codeblock": $$mdi:code-block-tags$$
     "&euro": $$mdi:currency-eur$$
 
+    # Func tapdance
+    "&tdfn":
+      tap: Func
+      hold: "2× tog"
+
+    # Umlaut combos
+    "&kp RA(A)": ä
+    "&kp RA(O)": ö
+    "&kp RA(U)": ü
+    "&kp RA(S)": ß
+
+    # Ctrl+number prettier
+    "&kp LC(N1)": "^1"
+    "&kp LC(N2)": "^2"
+    "&kp LC(N3)": "^3"
+    "&kp LC(N4)": "^4"
+    "&kp LC(N5)": "^5"
+    "&kp LC(N6)": "^6"
+    "&kp LC(N7)": "^7"
+    "&kp LC(N8)": "^8"
+    "&kp LC(N9)": "^9"
+    "&kp LC(N0)": "^0"
+
   # ZMK keycodes to symbols
   zmk_keycode_map:
     # Symbols
