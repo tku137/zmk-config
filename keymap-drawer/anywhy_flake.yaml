@@ -38,15 +38,15 @@ layers:
   - Nav
   - Sym
   - {t: '$$mdi:format-letter-case-upper$$', h: '$$mdi:apple-keyboard-shift$$'}
-  - Num
-  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
-  - $$mdi:star-three-points$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-control$$
   Nav:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - ^1
+  - ^2
+  - ^3
+  - ^4
+  - ^5
   - PG UP
   - HOME
   - $$mdi:arrow-up-bold$$
@@ -56,21 +56,21 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-shift$$
-  - $$mdi:star-three-points$$
+  - Meh+$$mdi:apple-keyboard-shift$$
   - PG DN
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - $$mdi:keyboard-esc$$
-  - $$mdi:keyboard-tab$$
-  - ''
-  - ''
+  - ^6
+  - ^7
+  - ^8
+  - ^9
+  - ^0
+  - {t: Func, h: 2× tog}
+  - F13
+  - F14
+  - F15
   - $$mdi:backspace-reverse-outline$$
   - ''
   - ''
@@ -78,50 +78,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - ''
-  Num:
-  - ''
-  - '7'
-  - '8'
-  - '9'
-  - (
-  - )
-  - +
-  - '-'
-  - '*'
-  - /
-  - '0'
-  - '4'
-  - '5'
-  - '6'
-  - {t: ., s: '>'}
-  - {t: '$$mdi:star-three-points$$', h: '$$tabler:pin$$'}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
-  - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
-  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
-  - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
-  - ''
-  - '1'
-  - '2'
-  - '3'
-  - {t: ',', s: <}
-  - $$mdi:currency-eur$$
-  - $
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - ''
+  - {t: F16, type: trans}
+  - F17
+  - F18
   - ''
   Sym:
   - ^
@@ -161,7 +120,48 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
+  - ''
+  - ''
+  - ''
+  Num:
+  - ''
+  - '7'
+  - '8'
+  - '9'
+  - (
+  - )
+  - +
+  - '-'
+  - '*'
+  - /
+  - '0'
+  - '4'
+  - '5'
+  - '6'
+  - {t: ., s: '>'}
+  - {t: '$$mdi:star-three-points$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-option$$', h: '$$tabler:pin$$'}
+  - {t: '$$mdi:apple-keyboard-control$$', h: '$$tabler:pin$$'}
+  - ''
+  - '1'
+  - '2'
+  - '3'
+  - {t: ',', s: <}
+  - $$mdi:currency-eur$$
+  - $
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - ''
   - ''
   - ''
   Func:
@@ -199,8 +199,8 @@ layers:
   - ''
   - ''
   - {t: '$$mdi:usb$$', h: '$$mdi:toggle-switch$$'}
-  - {type: held}
-  - {type: held}
+  - {t: Func, h: toggle}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - 'prs
 
@@ -236,3 +236,19 @@ combos:
 - p: [9, 19]
   k: $$mdi:apple-keyboard-shift$$
   l: [Base]
+- p: [10, 2]
+  k: ä
+  l: [Base]
+  draw_separate: true
+- p: [8, 2]
+  k: ö
+  l: [Base]
+  draw_separate: true
+- p: [6, 2]
+  k: ü
+  l: [Base]
+  draw_separate: true
+- p: [11, 20]
+  k: ß
+  l: [Base]
+  draw_separate: true
